@@ -1,5 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const { upload } = require('./config/multer');
+const uploadRoutes = require('./routes/upload');
+const indexRoutes = require('./routes/index');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -9,10 +13,13 @@ mongoose.connect('mongodb://localhost:27017/anp-candidates-database', { useNewUr
 // Express middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use('/public', express.static('public', { 'Content-Type': 'text/css' }));
 app.set('view engine', 'ejs');
 
-// Routes
-app.use('/', require('./routes/index'));
+
+// Use routes
+app.use('/', uploadRoutes);
+app.use('/', indexRoutes);
 
 // Start server
 app.listen(PORT, () => {

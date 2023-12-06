@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Item = require('../models/Item');
+const Item = require('../models/item');
 
 // Index route
 router.get('/', async (req, res) => {
