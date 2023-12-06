@@ -6,7 +6,7 @@ const Item = require('../models/item');
 
 // GET route to display the form with the image preview
 router.get('/add', (req, res) => {
-  res.render('add', { imagePath: null });
+  res.render('add');
 });
 
 // POST route for handling image upload and entry submission
@@ -27,8 +27,8 @@ router.post('/add', upload.single('profileImage'), async (req, res) => {
     });
 
     await newItem.save();
-
     // Redirect to a success page or wherever you want after the entry is saved
+    res.redirect("/")
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
