@@ -1,36 +1,74 @@
 <%- include('partials/header') %>
-    <div class="columns is-multiline">
-        <!-- Column 1 -->
-        <% if (items.length > 0) { %>
-            <% items.forEach(item => { %>
-        <div class="column is-one-quarter mt-6">
-            <!-- Your content for column 1 goes here -->
-            <div class="box">
-                <div class="card">
-                    <div class="card-image">
-                      <figure class="image is-4by3">
-                        <img src="<%= item.imagePath %>" alt="<%= item.name %>'s Image">
-                      </figure>
-                    </div>
-                    <div class="card-content">
-                      <div class="media">
 
-                        <div class="media-content">
-                          <p class="title is-4"><%= item.name %></p>
-                          <p class="subtitle is-6"><%= item.description%></p>
+<div class="columns is-multiline">
+    <% if (items.length > 0) { %>
+        <% items.forEach(item => { %>
+            <div class="column is-one-quarter mt-auto">
+                <div class="box mt-3">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="<%= item.imagePath %>" alt="<%= item.name %>'s Image">
+                            </figure>
                         </div>
-                      </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4"><%= item.name %></p>
+                                    <p class="subtitle is-6"><%= item.description %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <!-- Edit Button -->
+                            <a href="/edit/<%= item.id %>" class="card-footer-item has-text-info">
+                                Edit
+                            </a>
+                            <!-- Delete Button -->
+                            <a href="/delete/<%= item.id %>" class="card-footer-item has-text-danger" onclick="showDeleteMessage('<%= item.name %>')">
+                                Delete
+                            </a>
+                        </footer>
                     </div>
-                  </div>
+                </div>
             </div>
-        </div>
         <% }); %>
-            <% } else { %>
-                <p class="text-gray-500">No candidates available.</p>
-              <% } %>
-    </div>
+    <% } else { %>
+        <p class="text-gray-500">No candidates available.</p>
+    <% } %>
+</div>
 
+<!-- Modern Message Container -->
+<div id="deleteMessageContainer" class="notification is-success is-hidden">
+    <button class="delete" onclick="hideDeleteMessage"></button>
+    <p id="deleteMessage"></p>
+</div>
 
+<script>
+    // Function to show the delete message
+    function showDeleteMessage(name) {
+        const messageContainer = document.getElementById('deleteMessageContainer');
+        const message = document.getElementById('deleteMessage');
 
+        // Set the message text
+        message.textContent = `${name} has been successfully deleted.`;
+
+        // Show the message container
+        messageContainer.classList.remove('is-hidden');
+
+        // Hide the message after 5 seconds (adjust the timeout as needed)
+        setTimeout(() => {
+            hideDeleteMessage();
+        }, 5000);
+    }
+
+    // Function to hide the delete message
+    function hideDeleteMessage() {
+        const messageContainer = document.getElementById('deleteMessageContainer');
+
+        // Hide the message container
+        messageContainer.classList.add('is-hidden');
+    }
+</script>
 
 <%- include('partials/footer') %>
