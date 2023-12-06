@@ -1,5 +1,4 @@
 <%- include('partials/header') %>
-
 <div class="columns is-multiline">
     <% if (items.length > 0) { %>
         <% items.forEach(item => { %>
@@ -8,7 +7,7 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
-                                <img src="/uploads/<%= item.imagePath %>" alt="<%= item.name %>'s Image">
+                                <img src="/<%= item.imagePath %>" alt="<%= item.name %>'s Image">
                             </figure>
                         </div>
                         <div class="card-content">

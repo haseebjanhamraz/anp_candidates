@@ -16,6 +16,7 @@ mongoose.connect('mongodb://localhost:27017/anp-candidates-database', { useNewUr
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/public', express.static('public', { 'Content-Type': 'text/css' }));
+app.use('/uploads', express.static('public/uploads'));
 app.set('view engine', 'ejs');
 
 

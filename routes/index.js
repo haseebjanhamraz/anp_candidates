@@ -21,8 +21,6 @@ router.get('/add', (req, res) => {
 
 // Handle form submission
 router.post('/add', upload.single('profileImage'), async (req, res) => {
-  console.log(req.body);
-  console.log(req.file);
   try {
     // Extract data from the form submission
     const { name, username, email, subject, message } = req.body;
@@ -73,8 +71,6 @@ router.get('/edit/:id', async (req, res) => {
 
 router.post('/edit/:id', upload.single('profileImage'), async (req, res) => {
   try {
-    console.log('Request body:', req.body);
-    console.log('Request file:', req.file);
     const itemId = req.params.id;
 
     // Find the existing item
@@ -95,13 +91,17 @@ router.post('/edit/:id', upload.single('profileImage'), async (req, res) => {
     // If a new image is provided, update the imagePath
     if (req.file) {
       // Set both profileImage and imagePath to the new file name
+      // Log the existing and new file names
+  console.log('Old imagePath:', item.imagePath);
+  console.log('New imagePath:', req.file.filename);
+
       item.profileImage = req.file.filename;
-      item.imagePath = req.file.filename;
+      // item.imagePath = req.file.filename;
+      item.imagePath = 'uploads/' + req.file.filename; // Ensure the correct path
     }
 
     // Save the updated item
     await item.save();
-
     res.redirect('/');
   } catch (error) {
     console.error(error);
