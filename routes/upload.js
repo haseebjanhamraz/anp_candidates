@@ -15,17 +15,20 @@ router.post('/add', upload.single('profileImage'), async (req, res) => {
     // Construct the relative file path without /public
     const relativeFilePath = req.file.path.replace(/^public\//, '');
 
-    // Save the relative file path to your MongoDB database using the Item model
+    // Save the data to your MongoDB database using the Item model
     const newItem = new Item({
       name: req.body.name,
-      description: req.body.description,
-      imagePath: relativeFilePath,
+      username: req.body.username,
+      email: req.body.email,
+      subject: req.body.subject,
+      message: req.body.message,
+      question: req.body.question,
+      imagePath: relativeFilePath, // Ensure 'imagePath' is a field in your Item model
     });
 
     await newItem.save();
 
     // Redirect to a success page or wherever you want after the entry is saved
-    res.redirect('/success');
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

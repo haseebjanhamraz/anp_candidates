@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
-                                <img src="<%= item.imagePath %>" alt="<%= item.name %>'s Image">
+                                <img src="uploads/<%= item.imagePath %>" alt="<%= item.name %>'s Image">
                             </figure>
                         </div>
                         <div class="card-content">
@@ -35,6 +35,7 @@
         <% }); %>
     <% } else { %>
         <p class="text-gray-500">No candidates available.</p>
+        <%- include('errors/no_records_found') %>
     <% } %>
 </div>
 

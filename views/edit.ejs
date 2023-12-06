@@ -1,17 +1,74 @@
 <%- include('partials/header') %>
-  <div class="bg-white p-4 rounded shadow-md">
-    <h1 class="text-2xl font-bold text-gray-800">Edit Item</h1>
-    <form action="/edit/<%= item._id %>" method="post">
-      <div class="mb-4">
-        <label for="name" class="block text-gray-600">Name:</label>
-        <input type="text" id="name" name="name" value="<%= item.name %>" class="border w-full p-2">
-      </div>
-      <div class="mb-4">
-        <label for="description" class="block text-gray-600">Description:</label>
-        <textarea id="description" name="description" class="border w-full p-2"><%= item.description %></textarea>
-      </div>
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
-    </form>
-  </div>
+<div class="container mt-4">
+  <form action="/edit/<%= item._id %>" method="post" enctype="multipart/form-data">
 
-  <%- include('partials/footer') %>
+    <div class="field">
+      <label for="profileImage" class="label">Profile Image:</label>
+      <div class="control">
+        <figure class="image is-4by4">
+        <img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image" class="image-preview ">
+    </figure>
+        <input type="file" id="profileImage" name="profileImage" class="input" accept="image/*">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="name" class="label">Name:</label>
+      <div class="control">
+        <input type="text" id="name" name="name" class="input" value="<%= item.name %>" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="username" class="label">Username:</label>
+      <div class="control">
+        <input type="text" id="username" name="username" class="input" value="<%= item.username %>" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="email" class="label">Email:</label>
+      <div class="control">
+        <input type="email" id="email" name="email" class="input" value="<%= item.email %>" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="subject" class="label">Subject:</label>
+      <div class="control">
+        <input type="text" id="subject" name="subject" class="input" value="<%= item.subject %>" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="message" class="label">Message:</label>
+      <div class="control">
+        <textarea id="message" name="message" class="textarea" required><%= item.message %></textarea>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Question:</label>
+      <div class="control">
+        <label class="radio">
+          <input type="radio" name="question" value="Yes" <% if (item.question === 'Yes') { %>checked<% } %> required>
+          Yes
+        </label>
+        <label class="radio">
+          <input type="radio" name="question" value="No" <% if (item.question === 'No') { %>checked<% } %> required>
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="submit" class="button is-link">Update</button>
+      </div>
+      <div class="control">
+        <a href="/" class="button is-link is-light">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+<%- include('partials/footer') %>

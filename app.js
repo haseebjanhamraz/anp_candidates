@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const multer = require('multer');
+const path = require('path');
 const { upload } = require('./config/multer');
 const uploadRoutes = require('./routes/upload');
 const indexRoutes = require('./routes/index');
