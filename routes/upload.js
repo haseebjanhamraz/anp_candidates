@@ -2,12 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const { upload } = require('../config/multer');
+const user = require('../models/User');
 const Item = require('../models/item');
-
+const isAuthenticated = require('./protected'); // Assuming this import is correct
 
 // GET route to display the form with the image preview
-router.get('/add', (req, res) => {
-  res.render('add');
+router.get('/add', isAuthenticated, (req, res) => {
+  const user = req.user; // Fetch the user variable
+  res.render('add', { user });
 });
 
 // POST route for handling image upload and entry submission
@@ -29,7 +31,7 @@ router.post('/add', upload.single('profileImage'), async (req, res) => {
 
     await newItem.save();
     // Redirect to a success page or wherever you want after the entry is saved
-    res.redirect("/")
+    res.redirect('/');
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

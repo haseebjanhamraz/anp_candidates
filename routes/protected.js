@@ -1,4 +1,5 @@
 // routes/protected.js
+
 const express = require('express');
 const router = express.Router();
 
@@ -14,7 +15,5 @@ const isAuthenticated = (req, res, next) => {
 router.get('/add', isAuthenticated, (req, res) => {
   res.render('add', { user: req.user });
 });
-
-// Add more protected routes as needed
 
 module.exports = router;

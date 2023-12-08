@@ -1,16 +1,19 @@
+// routes/index.js
 const express = require('express');
 const router = express.Router();
-const { ensureAuthenticated } = require('./auth'); // Import the middleware
 const Item = require('../models/item');
-const { upload } = require('../config/multer'); // Import the upload middleware
+const { upload } = require('../config/multer');  // Adjusted import
 const user = require('../models/User');
+const isAuthenticated = require('./protected'); // Update this line
+
+
+
 // Index route
 router.get('/', async (req, res) => {
   const user = req.user;
   const items = await Item.find();
   res.render('index', { items, user: req.user });
 });
-
 
 
 // Handle form submission

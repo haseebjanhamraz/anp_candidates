@@ -17,10 +17,12 @@
         <a href="/" class="navbar-item">
           Home
         </a>
-  
+
+        <% if (user) { %>
         <a href="/add" class="navbar-item">
           Add New
         </a>
+        <% } %>
       </div>
   
       <div class="navbar-end">
