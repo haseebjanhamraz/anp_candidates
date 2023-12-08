@@ -75,9 +75,19 @@ router.post('/login', (req, res, next) => {
 
 
 // Logout route
-router.get("/logout", (req, res) => {
-  req.logout();
-  req.flash("success", "Successfully logged out."); // Set flash message for successful logout
-  res.redirect("/");
+router.post("/logout", (req, res) => {
+  // Use req.logout with a callback function
+  req.logout((err) => {
+    if (err) {
+      console.error('Logout error:', err);
+      return res.status(500).send('Internal Server Error');
+    }
+    req.flash("success", "Successfully logged out.");
+    res.redirect("/");
+    console.log("Logged out")
+  });
 });
+
+
+
 module.exports = router;
