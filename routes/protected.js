@@ -15,5 +15,9 @@ const isAuthenticated = (req, res, next) => {
 router.get('/add', isAuthenticated, (req, res) => {
   res.render('add', { user: req.user });
 });
+router.get('/edit/:id', isAuthenticated, (req, res) => {
+  res.render('edit', { user: req.user });
+});
+
 
 module.exports = router;

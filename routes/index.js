@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 
 // Handle form submission
-router.post('/add', upload.single('profileImage'), async (req, res) => {
+router.post('/add', isAuthenticated , upload.single('profileImage'), async (req, res) => {
   try {
     // Extract data from the form submission
     const { name, username, email, subject, message } = req.body;
@@ -50,7 +50,7 @@ router.post('/add', upload.single('profileImage'), async (req, res) => {
 
 
 // Edit route
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', isAuthenticated, async (req, res) => {
   try {
     const itemId = req.params.id;
     const item = await Item.findById(itemId);
@@ -59,7 +59,7 @@ router.get('/edit/:id', async (req, res) => {
       return res.status(404).send('Item not found');
     }
 
-    res.render('edit', { item });
+    res.render('edit', { item, user: req.user });
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
