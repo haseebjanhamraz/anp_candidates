@@ -1,23 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const { ensureAuthenticated } = require('./auth'); // Import the middleware
 const Item = require('../models/item');
 const { upload } = require('../config/multer'); // Import the upload middleware
+const user = require('../models/User');
 // Index route
 router.get('/', async (req, res) => {
+  const user = req.user;
   const items = await Item.find();
-  res.render('index', { items });
+  res.render('index', { items, user: req.user });
 });
 
-// Add route
-router.get('/add', (req, res) => {
-  res.render('add');
-});
 
-// router.post('/add', async (req, res) => {
-//   const newItem = new Item(req.body);
-//   await newItem.save();
-//   res.redirect('/');
-// });
 
 // Handle form submission
 router.post('/add', upload.single('profileImage'), async (req, res) => {
@@ -92,8 +86,6 @@ router.post('/edit/:id', upload.single('profileImage'), async (req, res) => {
     if (req.file) {
       // Set both profileImage and imagePath to the new file name
       // Log the existing and new file names
-  console.log('Old imagePath:', item.imagePath);
-  console.log('New imagePath:', req.file.filename);
 
       item.profileImage = req.file.filename;
       // item.imagePath = req.file.filename;

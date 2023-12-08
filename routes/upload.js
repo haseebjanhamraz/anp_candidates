@@ -4,6 +4,7 @@ const router = express.Router();
 const { upload } = require('../config/multer');
 const Item = require('../models/item');
 
+
 // GET route to display the form with the image preview
 router.get('/add', (req, res) => {
   res.render('add');
