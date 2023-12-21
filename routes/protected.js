@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-
+const Item = require('../models/item');
 // Middleware to check if the user is authenticated
 const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
@@ -11,13 +11,21 @@ const isAuthenticated = (req, res, next) => {
   res.redirect('/auth/login');
 };
 
-// Protected route
-router.get('/add', isAuthenticated, (req, res) => {
-  res.render('add', { user: req.user });
-});
-router.get('/edit/:id', isAuthenticated, (req, res) => {
-  res.render('edit', { user: req.user });
-});
+// Protected route to edit an item
+router.get('/edit/:id', isAuthenticated, async (req, res) => {
+  try {
+    const itemId = req.params.id;
+    const item = await Item.findById(itemId);
 
+    if (!item) {
+      return res.status(404).send('Item not found');
+    }
+
+    res.render('edit', { item, user: req.user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 module.exports = router;
