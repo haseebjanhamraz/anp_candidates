@@ -21,6 +21,7 @@
                         </div>
                         <footer class="card-footer">
                             <!-- Edit Button -->
+                            <% if (user) { %>
                             <a href="/edit/<%= item.id %>" class="card-footer-item has-text-info">
                                 Edit
                             </a>
@@ -28,6 +29,7 @@
                             <a href="/delete/<%= item.id %>" class="card-footer-item has-text-danger" onclick="showDeleteMessage('<%= item.name %>')">
                                 Delete
                             </a>
+                            <% } %>
                         </footer>
                     
                     </div>
