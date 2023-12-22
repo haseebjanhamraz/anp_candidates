@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 router.post('/add', isAuthenticated , upload.single('profileImage'), async (req, res) => {
   try {
     // Extract data from the form submission
-    const { name, fathername, email, district, message } = req.body;
+    const { name, fathername, email, district, constituencyType, message } = req.body;
 
     // Get the uploaded image file
     const profileImage = req.file;
@@ -31,6 +31,7 @@ router.post('/add', isAuthenticated , upload.single('profileImage'), async (req,
       fathername,
       email,
       district,
+      constituencyType,
       message,
       question,
       profileImage: profileImage.filename, // Save the filename to the database
@@ -82,6 +83,7 @@ router.post('/edit/:id', upload.single('profileImage'), async (req, res) => {
     item.fathername = req.body.fathername;
     item.email = req.body.email;
     item.district = req.body.district;
+    item.constituencyType = req.body.constituencyType;
     item.message = req.body.message;
     item.question = req.body.question;
 

@@ -24,6 +24,7 @@ router.post('/add', upload.single('profileImage'), async (req, res) => {
       fathername: req.body.fathername,
       email: req.body.email,
       district: req.body.district,
+      constituencyType: req.body.constituencyType,
       message: req.body.message,
       question: req.body.question,
       imagePath: relativeFilePath, // Ensure 'imagePath' is a field in your Item model
