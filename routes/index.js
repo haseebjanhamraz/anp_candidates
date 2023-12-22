@@ -110,7 +110,7 @@ router.post('/edit/:id', upload.single('profileImage'), async (req, res) => {
 
 
 // Delete route
-router.get('/delete/:id', async (req, res) => {
+router.get('/delete/:id', isAuthenticated, async (req, res) => {
   await Item.findByIdAndDelete(req.params.id);
   res.redirect('/');
 });

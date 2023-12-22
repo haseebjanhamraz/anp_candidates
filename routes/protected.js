@@ -35,4 +35,9 @@ router.get('/add', isAuthenticated, (req, res) => {
   res.render('add', { user: req.user });
 });
 
+router.get('/delete/:id', isAuthenticated, async (req, res) => {
+  await Item.findByIdAndDelete(req.params.id);
+  res.redirect('/');
+});
+
 module.exports = router;
