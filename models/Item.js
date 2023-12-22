@@ -8,6 +8,7 @@ const itemSchema = new mongoose.Schema({
   email: { type: String, required: true },
   district: { type: String, required: true },
   constituencyType: { type: String, required: true },
+  constituency: { type: String, required: true },
   message: { type: String, required: true },
   question: {type: String, required: true},
   imagePath: {type: String, required: true},
