@@ -10,27 +10,22 @@
           <input type="file" id="profileImage" name="profileImage" class="input" required>
         </div>
       </div>
-  
 
     <div class="field">
-      <label for="name" class="label">Name:</label>
+      <label for="name" class="label">Candidate Name:</label>
       <div class="control">
         <input type="text" id="name" name="name" class="input" required>
       </div>
     </div>
 
     <div class="field">
-      <label for="username" class="label">Username:</label>
+      <label for="fathername" class="label">Father Name:</label>
       <div class="control has-icons-left has-icons-right">
-        <input type="text" id="username" name="username" class="input is-success" placeholder="Text input" required>
+        <input type="text" id="fathername" name="fathername" class="input" placeholder="Text input" required>
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
         </span>
-        <span class="icon is-small is-right">
-          <i class="fas fa-check"></i>
-        </span>
       </div>
-      <p class="help is-success">This username is available</p>
     </div>
 
     <div class="field">
@@ -48,13 +43,58 @@
     </div>
 
     <div class="field">
-      <label for="subject" class="label">Subject:</label>
+      <label for="district" class="label">District:</label>
       <div class="control">
         <div class="select">
-          <select id="subject" name="subject" required>
-            <option>Select dropdown</option>
+          <!-- <select id="district" name="district" required>
+            <option>Select District</option>
             <option>With options</option>
-          </select>
+          </select> -->
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="district" name="district" required>
+                  <!-- List of cities in alphabetical order -->
+                  <option value="Abbottabad">Abbottabad</option>
+                  <option value="Bajaur">Bajaur</option>
+                  <option value="Bannu">Bannu</option>
+                  <option value="Battagram">Battagram</option>
+                  <option value="Buner">Buner</option>
+                  <option value="Charsadda">Charsadda</option>
+                  <option value="Chitral Lower">Chitral Lower</option>
+                  <option value="Chitral Upper">Chitral Upper</option>
+                  <option value="Dera ismail khan">Dera ismail khan</option>
+                  <option value="Hangu">Hangu</option>
+                  <option value="Haripur">Haripur</option>
+                  <option value="Karak">Karak</option>
+                  <option value="Kohat">Kohat</option>
+                  <option value="Lakki Marwat">Lakki Marwat</option>
+                  <option value="Lower Dir">Lower Dir</option>
+                  <option value="Lower Kohistan">Lower Kohistan</option>
+                  <option value="Malakand">Malakand</option>
+                  <option value="Mansehra">Mansehra</option>
+                  <option value="Mardan">Mardan</option>
+                  <option value="Nowshehra">Nowshehra</option>
+                  <option value="Peshawar">Peshawar</option>
+                  <option value="Shangla">Shangla</option>
+                  <option value="Swabi">Swabi</option>
+                  <option value="Swat">Swat</option>
+                  <option value="Tank">Tank</option>
+                  <option value="Torghar">Torghar</option>
+                  <option value="Upper Dir">Upper Dir</option>
+                  <option value="Upper Kohistan">Upper Kohistan</option>
+                  <option value="Upper Kohistan">Upper Kohistan</option>
+                  <option value="South Waziristan">South Waziristan</option>
+                  <option value="North Waziristan">North Waziristan</option>
+                  <option value="Orakzai">Orakzai</option>
+                  <option value="Mohmand">Mohmand</option>
+                  <option value="Kurram">Kurram</option>
+                  <option value="Kolai Palas">Kolai Palas</option>
+                  <option value="Upper Kohistan">Upper Kohistan</option>
+                  <option value="Lower Kohistan">Lower Kohistan</option>
+                  <option value="Khyber">Khyber</option>
+              </select>
+
+
+
+
         </div>
       </div>
     </div>

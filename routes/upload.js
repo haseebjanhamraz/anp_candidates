@@ -21,9 +21,9 @@ router.post('/add', upload.single('profileImage'), async (req, res) => {
     // Save the data to your MongoDB database using the Item model
     const newItem = new Item({
       name: req.body.name,
-      username: req.body.username,
+      fathername: req.body.fathername,
       email: req.body.email,
-      subject: req.body.subject,
+      district: req.body.district,
       message: req.body.message,
       question: req.body.question,
       imagePath: relativeFilePath, // Ensure 'imagePath' is a field in your Item model
