@@ -19,7 +19,7 @@
           </div>
 
           <div class="field">
-            <label for="fathername" class="label">Father Name:</label>
+            <label for="fathername" class="label">Candidate Father Name:</label>
             <div class="control has-icons-left has-icons-right">
               <input type="text" id="fathername" name="fathername" class="input" placeholder="Text input" required>
               <span class="icon is-small is-left">
@@ -29,27 +29,17 @@
           </div>
 
           <div class="field">
-            <label for="email" class="label">Email:</label>
+            <label for="contactNumber" class="label">Contact Number:</label>
             <div class="control has-icons-left has-icons-right">
-              <input type="email" id="email" name="email" class="input is-danger" placeholder="Email input" required>
+              <input type="text" id="contactNumber" name="contactNumber" class="input" placeholder="Contact Number" maxlength="11" required>
               <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
+                <i class="fas fa-phone"></i>
               </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-exclamation-triangle"></i>
-              </span>
-            </div>
-            <p class="help is-danger">This email is invalid</p>
-          </div>
 
           <div class="field">
             <label for="district" class="label">District:</label>
             <div class="control">
               <div class="select">
-                <!-- <select id="district" name="district" required>
-            <option>Select District</option>
-            <option>With options</option>
-          </select> -->
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="district"
                   name="district" required>
                           <!-- List of cities in alphabetical order -->
@@ -110,8 +100,6 @@
               </div>
             </div>
           </div>
-
-
           <div class="field">
             <label for="constituency" class="label">Constituency:</label>
             <div class="control has-icons-left has-icons-right">
@@ -129,25 +117,227 @@
           </div>
 
           <div class="field">
-            <label for="message" class="label">Message:</label>
+            <label for="currentAddress" class="label">Current Address:</label>
             <div class="control">
-              <textarea id="message" name="message" class="textarea" placeholder="Textarea" required></textarea>
+              <textarea id="currentAddress" name="currentAddress" class="textarea" placeholder="Street, Village/ City" required></textarea>
             </div>
           </div>
 
+          <div class="field">
+            <label for="permanentAddress" class="label">Permanent Address:</label>
+            <div class="control">
+              <textarea id="permanentAddress" name="permanentAddress" class="textarea" placeholder="Street, Village/ City" required></textarea>
+            </div>
+          </div>
+          <hr>
+
+
+          <!-- Suggestor Information  -->
+
 
           <div class="field">
+            <label for="suggesterName" class="label">Suggester Name:</label>
+            <div class="control">
+              <input type="text" id="suggesterName" name="suggesterName" class="input" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="suggesterFatherName" class="label">Suggester Father Name:</label>
+            <div class="control">
+              <input type="text" id="suggesterFatherName" name="suggesterFatherName" class="input" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="suggesterContactNum" class="label">Contact Number:</label>
+            <div class="control has-icons-left has-icons-right">
+              <input type="text" id="suggesterContactNum" name="suggesterContactNum" class="input" placeholder="Contact Number" maxlength="11" required>
+              <span class="icon is-small is-left">
+                <i class="fas fa-phone"></i>
+              </span>
+              </div>
+          </div>
+
+          <div class="field">
+            <label for="suggesterCNIC" class="label">CNIC Number:</label>
+            <div class="control has-icons-left has-icons-right">
+              <input type="text" id="suggesterCNIC" name="suggesterCNIC" class="input" maxlength="13" placeholder="1710132386724"
+                required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="suggesterCurrentAddress" class="label">Current Address:</label>
+            <div class="control">
+              <textarea id="suggesterCurrentAddress" name="suggesterCurrentAddress" class="textarea" placeholder="Street, Village/ City" required></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="suggConstTyp" class="label">Constituency Type:</label>
+            <div class="control">
+              <div class="select">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                  id="suggConstTyp" name="suggConstTyp" required>
+                          <option value="NA">National Assembly - NA</option>
+                          <option value="PK">Provincial Assembly - PK</option>
+                      </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="suggesterConstituency" class="label">Constituency:</label>
+            <div class="control has-icons-left has-icons-right">
+              <input type="number" id="suggesterConstituency" name="suggesterConstituency" class="input" placeholder="eg; 59" required>
+              </span>
+            </div>
+          </div>
+
+          <hr>
+
+          <!-- Vindicator Information  -->
+
+          <div class="field">
+            <label for="vindicatorName" class="label">Vindicator Name:</label>
+            <div class="control">
+              <input type="text" id="vindicatorName" name="vindicatorName" class="input" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="vindicatorFatherName" class="label">Vindicator Father Name:</label>
+            <div class="control">
+              <input type="text" id="vindicatorFatherName" name="vindicatorFatherName" class="input" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="vindicatorContactNum" class="label">Contact Number:</label>
+            <div class="control has-icons-left has-icons-right">
+              <input type="text" id="vindicatorContactNum" name="vindicatorContactNum" class="input" placeholder="Contact Number" maxlength="11" required>
+              <span class="icon is-small is-left">
+                <i class="fas fa-phone"></i>
+              </span>
+              </div>
+          </div>
+
+          <div class="field">
+            <label for="vindicatorCNIC" class="label">CNIC Number:</label>
+            <div class="control has-icons-left has-icons-right">
+              <input type="text" id="vindicatorCNIC" name="vindicatorCNIC" class="input" maxlength="13" placeholder="1710132386724"
+                required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="vindicatorCurrentAddress" class="label">Current Address:</label>
+            <div class="control">
+              <textarea id="vindicatorCurrentAddress" name="vindicatorCurrentAddress" class="textarea" placeholder="Street, Village/ City" required></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="vindConstTyp" class="label">Constituency Type:</label>
+            <div class="control">
+              <div class="select">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                  id="vindConstTyp" name="vindConstTyp" required>
+                          <option value="NA">National Assembly - NA</option>
+                          <option value="PK">Provincial Assembly - PK</option>
+                      </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="vindicatorConstituency" class="label">Constituency:</label>
+            <div class="control has-icons-left has-icons-right">
+              <input type="number" id="vindicatorConstituency" name="vindicatorConstituency" class="input" placeholder="eg; 59" required>
+              </span>
+            </div>
+          </div>
+
+          <hr>
+
+          <!-- Signatures Verification -->
+
+          <div class="field">
+            <label class="label">Candidate Signature?</label>
             <div class="control">
               <label class="radio">
-                <input type="radio" name="question" required>
+                <input type="radio" name="candidateSign" value="signed"  required checked>
                 Yes
               </label>
               <label class="radio">
-                <input type="radio" name="question" required>
+                <input type="radio" name="candidateSign" value="notAvailable" required>
                 No
               </label>
             </div>
           </div>
+          <div class="field">
+            <label class="label">Suggester Signature?</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="suggesterSign" value="signed"  required checked>
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="suggesterSign" value="notAvailable" required>
+                No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Vindicator Signature?</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="vindicatorSign" value="signed"  required checked>
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="vindicatorSign" value="notAvailable" required>
+                No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Union Council President Signature?</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="ucPresidentSign" value="signed"  required checked>
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="ucPresidentSign" value="notAvailable" required>
+                No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Tehsil President Signature?</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="tehsilPresidentSign" value="signed"  required checked>
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="tehsilPresidentSign" value="notAvailable" required>
+                No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">District President ANP Signature?</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="districtPresidentSign" value="signed"  required checked>
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="districtPresidentSign" value="notAvailable" required>
+                No
+              </label>
+            </div>
+          </div>
+
 
           <div class="field is-grouped">
             <div class="control">
