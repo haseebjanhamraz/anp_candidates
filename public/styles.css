@@ -32,6 +32,10 @@ h1.title {
     font-size: .8rem;
     margin-bottom: 10px;
 }
+.myform label.radio {
+    display: flex;
+    align-items: center;
+}
 
 
 .myform input {
@@ -48,6 +52,7 @@ h1.title {
     border: 2px solid transparent;
     transition: border 250ms;
 }
+
 
 .full-width {
     grid-column: -1 / 1
@@ -75,6 +80,11 @@ h1.title {
 .button button:hover {
     background: rgba(57, 50, 173, 1);
 }
+
+.radio{
+    display: block;
+}
+
 input[type="radio"] {
-    font-size: 1px;
+    height: 14px;
   }
