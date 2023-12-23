@@ -1,78 +1,30 @@
 <%- include('partials/header') %>
-<div class="columns is-multiline">
-    <% if (items.length > 0) { %>
-        <% items.forEach(item => { %>
-            <div class="column is-one-quarter mt-auto">
-                <div class="box">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/<%= item.imagePath %>" alt="<%= item.name %>'s Image">
-                            </figure>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% if (items.length > 0) { %>
+            <% items.forEach(item=> { %>
+                    <div class="col">
+                      <div class="card h-100">
+                        <img src="<%= item.imagePath %>" class="card-img-top" width="200px" height="300px" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= item.name %></h5>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">District: <%= item.district %></li>
+                            <li class="list-group-item">Constituency: <%= item.constituencyType %> <span class="badge rounded-pill text-bg-danger"><%= item.constituency %> </span> </li>
+                            <li class="list-group-item"> <i class="fas fa-phone"></i> <%= item.contactNumber %> </li>
+                          </ul>
                         </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                    <p class="title is-4"><%= item.name %></p>
-                                    <p class="subtitle is-6"><%= item.description %></p>
-                                </div>
-                            </div>
-                            <p class="p-0"><i class="fas fa-home"></i> <%= item.district %> </p>
-                            <p class="p-0"><i class="fas fa-paperclip"></i> <%= item.constituencyType %> - <%= item.constituency %> </p>
+                        <div class="card-footer">
+                            <a href="/item/<%= item._id %>" class="btn btn-primary">View</a>
+                          <small class="text-body-secondary">Last updated 3 mins ago</small>
                         </div>
-                        <footer class="card-footer">
-                            <!-- Edit Button -->
-                            <% if (user) { %>
-                            <a href="/edit/<%= item.id %>" class="card-footer-item has-text-info">
-                                Edit
-                            </a>
-                            <!-- Delete Button -->
-                            <a href="/delete/<%= item.id %>" class="card-footer-item has-text-danger" onclick="showDeleteMessage('<%= item.name %>')">
-                                Delete
-                            </a>
-                            <% } %>
-                        </footer>
-                    
+                      </div>
                     </div>
-                </div>
-            </div>
-        <% }); %>
-    <% } else { %>
-        <%- include('errors/no_records_found') %>
-    <% } %>
-</div>
+                    <% }); %>
+                        <% } else { %>
+                            <%- include('errors/no_records_found') %>
+                                <% } %>
+                            </div>
+                            </div>
 
-<!-- Modern Message Container -->
-<div id="deleteMessageContainer" class="notification is-success is-hidden">
-    <button class="delete" onclick="hideDeleteMessage"></button>
-    <p id="deleteMessage"></p>
-</div>
-
-<script>
-    // Function to show the delete message
-    function showDeleteMessage(name) {
-        const messageContainer = document.getElementById('deleteMessageContainer');
-        const message = document.getElementById('deleteMessage');
-
-        // Set the message text
-        message.textContent = `${name} has been successfully deleted.`;
-
-        // Show the message container
-        messageContainer.classList.remove('is-hidden');
-
-        // Hide the message after 5 seconds (adjust the timeout as needed)
-        setTimeout(() => {
-            hideDeleteMessage();
-        }, 5000);
-    }
-
-    // Function to hide the delete message
-    function hideDeleteMessage() {
-        const messageContainer = document.getElementById('deleteMessageContainer');
-
-        // Hide the message container
-        messageContainer.classList.add('is-hidden');
-    }
-</script>
-
-<%- include('partials/footer') %>
+    <%- include('partials/footer') %>

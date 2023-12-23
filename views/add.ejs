@@ -1,15 +1,16 @@
 <%- include('partials/header') %>
-  <div class="container is-max-desktop">
-    <div class="column is-mobile">
-      <div class="column is-three-fifths is-offset-one-fifth">
+
+<div class="field">
+  <label for="profileImage" class="label">Profile Image:</label>
+  <div class="control">
+    <input type="file" id="profileImage" name="profileImage" class="input" required>
+  </div>
+</div>
+
+    <div class="columns is-flex is-flex-direction-row	">
+      <div class="column is-one-quarter is-offset-one-fifth">
         <form action="/add" method="post" enctype="multipart/form-data">
 
-          <div class="field">
-            <label for="profileImage" class="label">Profile Image:</label>
-            <div class="control">
-              <input type="file" id="profileImage" name="profileImage" class="input" required>
-            </div>
-          </div>
 
           <div class="field">
             <label for="name" class="label">Candidate Name:</label>
@@ -35,7 +36,8 @@
               <span class="icon is-small is-left">
                 <i class="fas fa-phone"></i>
               </span>
-
+              </div>
+          </div>
           <div class="field">
             <label for="district" class="label">District:</label>
             <div class="control">
@@ -103,11 +105,10 @@
           <div class="field">
             <label for="constituency" class="label">Constituency:</label>
             <div class="control has-icons-left has-icons-right">
-              <input type="number" id="constituency" name="constituency" class="input" placeholder="eg; 59" required>
+              <input type="number" id="constituency" name="constituency" maxlength="3" class="input" placeholder="eg; 59" required>
               </span>
             </div>
           </div>
-
           <div class="field">
             <label for="cnic" class="label">CNIC Number:</label>
             <div class="control has-icons-left has-icons-right">
@@ -188,11 +189,10 @@
           <div class="field">
             <label for="suggesterConstituency" class="label">Constituency:</label>
             <div class="control has-icons-left has-icons-right">
-              <input type="number" id="suggesterConstituency" name="suggesterConstituency" class="input" placeholder="eg; 59" required>
+              <input type="number" id="suggesterConstituency" name="suggesterConstituency" maxlength="3" class="input" placeholder="eg; 59" required>
               </span>
             </div>
           </div>
-
           <hr>
 
           <!-- Vindicator Information  -->
@@ -250,7 +250,7 @@
           <div class="field">
             <label for="vindicatorConstituency" class="label">Constituency:</label>
             <div class="control has-icons-left has-icons-right">
-              <input type="number" id="vindicatorConstituency" name="vindicatorConstituency" class="input" placeholder="eg; 59" required>
+              <input type="number" id="vindicatorConstituency" name="vindicatorConstituency" maxlength="3" class="input" placeholder="eg; 59" required>
               </span>
             </div>
           </div>
@@ -350,7 +350,6 @@
         </form>
       </div>
     </div>
-  </div>
 
 
 

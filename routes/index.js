@@ -13,6 +13,17 @@ router.get("/", async (req, res) => {
   res.render("index", { items, user: req.user });
 });
 
+router.get('/item/:id', async (req, res) => {
+  try {
+    const item = await Item.findById(req.params.id);
+    const user = req.user;
+    res.render('item', { item, user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 // Handle form submission
 router.post(
   "/add",

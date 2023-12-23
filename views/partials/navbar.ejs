@@ -1,47 +1,25 @@
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+      <img src="/images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Awami National Party 
       </a>
-        <figure class="image is-64x64 m-3">
-          <img src="images/logo.png">
-        </figure>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a href="/" class="navbar-item">
-          Home
-        </a>
-
-        <% if (user) { %>
+      <% if (user) { %>
         <a href="/add" class="navbar-item">
           Add New
         </a>
         <% } %>
-      </div>
-  
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <% if (user) { %>
-              <form action="/auth/logout" method="post">
-                <button type="submit">Logout</button>
-            </form>
-            <% } else { %>
-              <a href="/auth/register" class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a href="/auth/login" class="button is-light">
-                Log in
-              </a>
-              <% } %>
-          </div>
-        </div>
-      </div>
+        <% if (user) { %>
+          <form action="/auth/logout" method="post">
+            <button type="submit">Logout</button>
+        </form>
+        <% } else { %>
+          <a href="/auth/register" class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a href="/auth/login" class="button is-light">
+            Log in
+          </a>
+          <% } %>
     </div>
   </nav>
