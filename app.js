@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
-app.use('/public', express.static('public', { 'Content-Type': 'text/css' }));
+app.use('/public', express.static('public'));
 app.use('/uploads', express.static('public/uploads'));
 app.set('view engine', 'ejs');
 
