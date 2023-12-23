@@ -1,16 +1,17 @@
 <%- include('partials/header') %>
 
-<div class="field">
-  <label for="profileImage" class="label">Profile Image:</label>
-  <div class="control">
-    <input type="file" id="profileImage" name="profileImage" class="input" required>
-  </div>
-</div>
-
     <div class="columns is-flex is-flex-direction-row	">
       <div class="column is-one-quarter is-offset-one-fifth">
         <form action="/add" method="post" enctype="multipart/form-data">
 
+
+          <div class="field">
+            <label for="profileImage" class="label">Profile Image:</label>
+            <div class="control">
+              <input type="file" id="profileImage" name="profileImage" class="input" required>
+            </div>
+          </div>
+          
 
           <div class="field">
             <label for="name" class="label">Candidate Name:</label>

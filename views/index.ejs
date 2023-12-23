@@ -1,30 +1,30 @@
 <%- include('partials/header') %>
+  <section class="team-grid">
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% if (items.length > 0) { %>
-            <% items.forEach(item=> { %>
-                    <div class="col">
-                      <div class="card h-100">
-                        <img src="<%= item.imagePath %>" class="card-img-top" width="200px" height="300px" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title"><%= item.name %></h5>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">District: <%= item.district %></li>
-                            <li class="list-group-item">Constituency: <%= item.constituencyType %> <span class="badge rounded-pill text-bg-danger"><%= item.constituency %> </span> </li>
-                            <li class="list-group-item"> <i class="fas fa-phone"></i> <%= item.contactNumber %> </li>
-                          </ul>
-                        </div>
-                        <div class="card-footer">
-                            <a href="/item/<%= item._id %>" class="btn btn-primary">View</a>
-                          <small class="text-body-secondary">Last updated 3 mins ago</small>
-                        </div>
-                      </div>
-                    </div>
-                    <% }); %>
-                        <% } else { %>
-                            <%- include('errors/no_records_found') %>
-                                <% } %>
-                            </div>
-                            </div>
-
-    <%- include('partials/footer') %>
+      <div class="row people">
+        <h1 class="mb-3">ANP Candidates Database</h1>
+        <% if (items.length> 0) { %>
+          <% items.forEach(item=> { %>
+            <div class="col-md-4 col-lg-3 item">
+              <div class="box" style="background-image:url('<%= item.imagePath %>')">
+                <div class="cover">
+                  <h3 class="name">
+                    <%= item.name %>
+                  </h3>
+                  <p class="title">
+                    <%= item.district %> - <%= item.constituencyType %>
+                        <%= item.constituency %>
+                  </p>
+                  <a href="/item/<%= item._id %>"><button class="btn btn-primary" type="button"
+                      style="width: 50px;font-size: 12px;">View</button></a>
+                </div>
+              </div>
+            </div>
+            <% }); %>
+              <% } else { %>
+                <%- include('errors/no_records_found') %>
+                  <% } %>
+      </div>
+    </div>
+  </section>
+  <%- include('partials/footer') %>
