@@ -1,46 +1,32 @@
 <%- include('partials/header') %>
-
-    <div class="columns is-flex is-flex-direction-row	">
-      <div class="column is-one-quarter is-offset-one-fifth">
-        <form action="/add" method="post" enctype="multipart/form-data">
-
-
-          <div class="field">
+  <div class="container-100 justify-content-center">
+    <div class="wrapper">
+      <div class="form">
+        <h1 class="title">Register a candidate</h1>
+        <hr>
+        <form action="/add" method="post" class="myform" enctype="multipart/form-data">
+          <hr>
+          <h4 class="text-center">Candidate Information</h4>
+          <hr>
+          <div class="control-from">
             <label for="profileImage" class="label">Profile Image:</label>
             <div class="control">
               <input type="file" id="profileImage" name="profileImage" class="input" required>
             </div>
           </div>
-          
-
-          <div class="field">
-            <label for="name" class="label">Candidate Name:</label>
-            <div class="control">
-              <input type="text" id="name" name="name" class="input" required>
-            </div>
+          <div class="control-from">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" class="input" placeholder="Name" required>
           </div>
 
-          <div class="field">
-            <label for="fathername" class="label">Candidate Father Name:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="text" id="fathername" name="fathername" class="input" placeholder="Text input" required>
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
-            </div>
+          <div class="control-from">
+            <label for="fathername">Father Name *</label>
+            <input type="text" id="fathername" name="fathername" class="input" placeholder="Father Name" required>
           </div>
 
+
           <div class="field">
-            <label for="contactNumber" class="label">Contact Number:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="text" id="contactNumber" name="contactNumber" class="input" placeholder="Contact Number" maxlength="11" required>
-              <span class="icon is-small is-left">
-                <i class="fas fa-phone"></i>
-              </span>
-              </div>
-          </div>
-          <div class="field">
-            <label for="district" class="label">District:</label>
+            <label for="district" class="label">District*</label>
             <div class="control">
               <div class="select">
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="district"
@@ -89,10 +75,15 @@
             </div>
           </div>
 
+          <div class="control-from">
+            <label for="contactNumber">Contact Number *</label>
+            <input type="text" id="contactNumber" name="contactNumber" class="input" placeholder="Contact Number"
+              maxlength="11" required>
+          </div>
 
 
           <div class="field">
-            <label for="constituencyType" class="label">Constituency Type:</label>
+            <label for="constituencyType" class="label">Constituency Type*</label>
             <div class="control">
               <div class="select">
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
@@ -103,185 +94,162 @@
               </div>
             </div>
           </div>
-          <div class="field">
-            <label for="constituency" class="label">Constituency:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="number" id="constituency" name="constituency" maxlength="3" class="input" placeholder="eg; 59" required>
-              </span>
-            </div>
-          </div>
-          <div class="field">
-            <label for="cnic" class="label">CNIC Number:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="text" id="cnic" name="cnic" class="input" maxlength="13" placeholder="1710132386724"
-                required>
-            </div>
+
+          <div class="control-from">
+            <label for="constituency">Constituency# *</label>
+            <input type="number" id="constituency" name="constituency" maxlength="3" class="input" placeholder="eg; 59"
+              required>
           </div>
 
-          <div class="field">
-            <label for="currentAddress" class="label">Current Address:</label>
-            <div class="control">
-              <textarea id="currentAddress" name="currentAddress" class="textarea" placeholder="Street, Village/ City" required></textarea>
-            </div>
+          <div class="control-from">
+            <label for="cnic">CNIC# *</label>
+            <input type="text" id="cnic" name="cnic" class="input" maxlength="13" placeholder="1710132386724">
+          </div>
+          <div class="full-width">
+            <label for="currentAddress">Current Address *</label>
+            <input type="text" id="currentAddress" name="currentAddress" class="input"
+              placeholder="Street, Village/ City" required>
+          </div>
+          <div class="full-width">
+            <label for="permanentAddress">Permanent Address *</label>
+            <input type="text" id="permanentAddress" name="permanentAddress" class="input"
+              placeholder="Street, Village/ City" required>
           </div>
 
-          <div class="field">
-            <label for="permanentAddress" class="label">Permanent Address:</label>
-            <div class="control">
-              <textarea id="permanentAddress" name="permanentAddress" class="textarea" placeholder="Street, Village/ City" required></textarea>
-            </div>
-          </div>
           <hr>
-
-
-          <!-- Suggestor Information  -->
-
-
-          <div class="field">
-            <label for="suggesterName" class="label">Suggester Name:</label>
-            <div class="control">
-              <input type="text" id="suggesterName" name="suggesterName" class="input" required>
-            </div>
-          </div>
-          <div class="field">
-            <label for="suggesterFatherName" class="label">Suggester Father Name:</label>
-            <div class="control">
-              <input type="text" id="suggesterFatherName" name="suggesterFatherName" class="input" required>
-            </div>
+          <h4 class="text-center">Suggester Information</h4>
+          <hr>
+          <div class="control-from">
+            <label for="suggesterName">Name *</label>
+            <input type="text" id="suggesterName" name="suggesterName" class="input" required>
           </div>
 
-          <div class="field">
-            <label for="suggesterContactNum" class="label">Contact Number:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="text" id="suggesterContactNum" name="suggesterContactNum" class="input" placeholder="Contact Number" maxlength="11" required>
-              <span class="icon is-small is-left">
-                <i class="fas fa-phone"></i>
-              </span>
-              </div>
+          <div class="control-from">
+            <label for="suggesterFatherName">Father Name *</label>
+            <input type="text" id="suggesterFatherName" name="suggesterFatherName" class="input" required>
           </div>
 
-          <div class="field">
-            <label for="suggesterCNIC" class="label">CNIC Number:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="text" id="suggesterCNIC" name="suggesterCNIC" class="input" maxlength="13" placeholder="1710132386724"
-                required>
-            </div>
+          <div class="control-from">
+            <label for="contactNumber">Contact Number *</label>
+            <input type="text" id="suggesterContactNum" name="suggesterContactNum" class="input"
+              placeholder="Contact Number" maxlength="11" required>
+          </div>
+
+          <div class="control-from">
+            <label for="suggesterCNIC">CNIC# *</label>
+            <input type="text" id="suggesterCNIC" name="suggesterCNIC" class="input" maxlength="13"
+              placeholder="1710132386724" required>
+          </div>
+
+          <div class="control-form">
+            <label for="suggesterCurrentAddress">Current Address *</label>
+            <input type="text" id="suggesterCurrentAddress" name="suggesterCurrentAddress" class="input"
+              placeholder="Street, Village/ City" required>
           </div>
 
           <div class="field">
-            <label for="suggesterCurrentAddress" class="label">Current Address:</label>
-            <div class="control">
-              <textarea id="suggesterCurrentAddress" name="suggesterCurrentAddress" class="textarea" placeholder="Street, Village/ City" required></textarea>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="suggConstTyp" class="label">Constituency Type:</label>
+            <label for="suggConstTyp" class="label">Constituency Type*</label>
             <div class="control">
               <div class="select">
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
-                  id="suggConstTyp" name="suggConstTyp" required>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="suggConstTyp"
+                  name="suggConstTyp" required>
                           <option value="NA">National Assembly - NA</option>
                           <option value="PK">Provincial Assembly - PK</option>
                       </select>
               </div>
             </div>
           </div>
-          <div class="field">
-            <label for="suggesterConstituency" class="label">Constituency:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="number" id="suggesterConstituency" name="suggesterConstituency" maxlength="3" class="input" placeholder="eg; 59" required>
-              </span>
-            </div>
+
+          <div class="control-from">
+            <label for="suggesterConstituency">Constituency# *</label>
+            <input type="number" id="suggesterConstituency" name="suggesterConstituency" maxlength="3" class="input"
+              placeholder="eg; 59" required>
           </div>
+
+
+          <div class="control-from"></div>
+          <div class="control-from"></div>
+
+
+          <hr>
+          <h4 class="text-center">Vindicator Information</h4>
           <hr>
 
-          <!-- Vindicator Information  -->
-
-          <div class="field">
-            <label for="vindicatorName" class="label">Vindicator Name:</label>
-            <div class="control">
-              <input type="text" id="vindicatorName" name="vindicatorName" class="input" required>
-            </div>
-          </div>
-          <div class="field">
-            <label for="vindicatorFatherName" class="label">Vindicator Father Name:</label>
-            <div class="control">
-              <input type="text" id="vindicatorFatherName" name="vindicatorFatherName" class="input" required>
-            </div>
+          <div class="control-from">
+            <label for="vindicatorName">Name *</label>
+            <input type="text" id="vindicatorName" name="vindicatorName" class="input" required>
           </div>
 
-          <div class="field">
-            <label for="vindicatorContactNum" class="label">Contact Number:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="text" id="vindicatorContactNum" name="vindicatorContactNum" class="input" placeholder="Contact Number" maxlength="11" required>
-              <span class="icon is-small is-left">
-                <i class="fas fa-phone"></i>
-              </span>
-              </div>
+          <div class="control-from">
+            <label for="vindicatorFatherName">Father Name *</label>
+            <input type="text" id="vindicatorFatherName" name="vindicatorFatherName" class="input" required>
           </div>
 
-          <div class="field">
-            <label for="vindicatorCNIC" class="label">CNIC Number:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="text" id="vindicatorCNIC" name="vindicatorCNIC" class="input" maxlength="13" placeholder="1710132386724"
-                required>
-            </div>
+          <div class="control-from">
+            <label for="vindicatorContactNum">Contact Number *</label>
+            <input type="text" id="vindicatorContactNum" name="vindicatorContactNum" class="input"
+              placeholder="Contact Number" maxlength="11" required>
+          </div>
+
+          <div class="control-from">
+            <label for="vindicatorCNIC">CNIC# *</label>
+            <input type="text" id="vindicatorCNIC" name="vindicatorCNIC" class="input" maxlength="13"
+              placeholder="1710132386724" required>
+          </div>
+
+          <div class="control-form">
+            <label for="vindicatorCurrentAddress">Current Address *</label>
+            <input type="text" id="vindicatorCurrentAddress" name="vindicatorCurrentAddress" class="input"
+              placeholder="Street, Village/ City" required>
           </div>
 
           <div class="field">
-            <label for="vindicatorCurrentAddress" class="label">Current Address:</label>
-            <div class="control">
-              <textarea id="vindicatorCurrentAddress" name="vindicatorCurrentAddress" class="textarea" placeholder="Street, Village/ City" required></textarea>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="vindConstTyp" class="label">Constituency Type:</label>
+            <label for="vindConstTyp" class="label">Constituency Type*</label>
             <div class="control">
               <div class="select">
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
-                  id="vindConstTyp" name="vindConstTyp" required>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="vindConstTyp"
+                  name="vindConstTyp" required>
                           <option value="NA">National Assembly - NA</option>
                           <option value="PK">Provincial Assembly - PK</option>
                       </select>
               </div>
             </div>
           </div>
-          <div class="field">
-            <label for="vindicatorConstituency" class="label">Constituency:</label>
-            <div class="control has-icons-left has-icons-right">
-              <input type="number" id="vindicatorConstituency" name="vindicatorConstituency" maxlength="3" class="input" placeholder="eg; 59" required>
-              </span>
-            </div>
-          </div>
 
-          <hr>
+          <div class="control-from">
+            <label for="vindicatorConstituency">Constituency# *</label>
+            <input type="number" id="vindicatorConstituency" name="vindicatorConstituency" maxlength="3" class="input"
+              placeholder="eg; 59" required>
+          </div>
+          <div class="control-from">
+          </div>
+          <div class="control-from">
+          </div>
 
           <!-- Signatures Verification -->
 
-          <div class="field">
-            <label class="label">Candidate Signature?</label>
-            <div class="control">
-              <label class="radio">
-                <input type="radio" name="candidateSign" value="signed"  required checked>
-                Yes
-              </label>
-              <label class="radio">
-                <input type="radio" name="candidateSign" value="notAvailable" required>
-                No
-              </label>
-            </div>
+
+          <label class="label">Candidate Signature?</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="candidateSign" value="signed" required checked>
+              Signed
+            </label>
+            <label class="radio">
+              <input type="radio" name="candidateSign" value="notSigned" required>
+              No
+            </label>
           </div>
+
           <div class="field">
             <label class="label">Suggester Signature?</label>
             <div class="control">
               <label class="radio">
-                <input type="radio" name="suggesterSign" value="signed"  required checked>
-                Yes
+                <input type="radio" name="suggesterSign" value="signed" required checked>
+                Signed
               </label>
               <label class="radio">
-                <input type="radio" name="suggesterSign" value="notAvailable" required>
+                <input type="radio" name="suggesterSign" value="notSigned" required>
                 No
               </label>
             </div>
@@ -290,11 +258,11 @@
             <label class="label">Vindicator Signature?</label>
             <div class="control">
               <label class="radio">
-                <input type="radio" name="vindicatorSign" value="signed"  required checked>
-                Yes
+                <input type="radio" name="vindicatorSign" value="signed" required checked>
+                Signed
               </label>
               <label class="radio">
-                <input type="radio" name="vindicatorSign" value="notAvailable" required>
+                <input type="radio" name="vindicatorSign" value="notSigned" required>
                 No
               </label>
             </div>
@@ -303,11 +271,11 @@
             <label class="label">Union Council President Signature?</label>
             <div class="control">
               <label class="radio">
-                <input type="radio" name="ucPresidentSign" value="signed"  required checked>
-                Yes
+                <input type="radio" name="ucPresidentSign" value="signed" required checked>
+                Signed
               </label>
               <label class="radio">
-                <input type="radio" name="ucPresidentSign" value="notAvailable" required>
+                <input type="radio" name="ucPresidentSign" value="notSigned" required>
                 No
               </label>
             </div>
@@ -316,11 +284,11 @@
             <label class="label">Tehsil President Signature?</label>
             <div class="control">
               <label class="radio">
-                <input type="radio" name="tehsilPresidentSign" value="signed"  required checked>
-                Yes
+                <input type="radio" name="tehsilPresidentSign" value="signed" required checked>
+                Signed
               </label>
               <label class="radio">
-                <input type="radio" name="tehsilPresidentSign" value="notAvailable" required>
+                <input type="radio" name="tehsilPresidentSign" value="notSigned" required>
                 No
               </label>
             </div>
@@ -329,28 +297,26 @@
             <label class="label">District President ANP Signature?</label>
             <div class="control">
               <label class="radio">
-                <input type="radio" name="districtPresidentSign" value="signed"  required checked>
-                Yes
+                <input type="radio" name="districtPresidentSign" value="signed" required checked>
+                Signed
               </label>
               <label class="radio">
-                <input type="radio" name="districtPresidentSign" value="notAvailable" required>
+                <input type="radio" name="districtPresidentSign" value="notSigned" required>
                 No
               </label>
             </div>
           </div>
 
 
-          <div class="field is-grouped">
-            <div class="control">
-              <button type="submit" class="button is-link">Submit</button>
-            </div>
-            <div class="control">
-              <button type="button" class="button is-link is-light">Cancel</button>
-            </div>
+
+          <div class="button">
+            <button type="submit" id="register">Register</button>
           </div>
         </form>
       </div>
     </div>
+  </div>
+
 
 
 
