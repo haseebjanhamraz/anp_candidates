@@ -40,7 +40,8 @@ router.post('/register', async (req, res) => {
 
 // Login route
 router.get("/login", (req, res) => {
-  res.render("login"); // Create a login form (login.ejs)
+  const user = req.user;
+  res.render("login", { user } ); // Create a login form (login.ejs)
 });
 
 
