@@ -10,14 +10,14 @@ const isAuthenticated = require("./protected"); // Update this line
 router.get("/", async (req, res) => {
   const user = req.user;
   const items = await Item.find();
-  res.render("index", { items, user: req.user });
+  res.render("index", { items, user: req.user, title: "Home" });
 });
 
 router.get('/item/:id', async (req, res) => {
   try {
     const item = await Item.findById(req.params.id);
     const user = req.user;
-    res.render('item', { item, user });
+    res.render('item', { item, user, title: 'Candidate Details' });
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

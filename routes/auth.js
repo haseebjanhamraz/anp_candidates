@@ -41,7 +41,7 @@ router.post('/register', async (req, res) => {
 // Login route
 router.get("/login", (req, res) => {
   const user = req.user;
-  res.render("login", { user } ); // Create a login form (login.ejs)
+  res.render("login", { user, title: "Login" } ); // Create a login form (login.ejs)
 });
 
 
