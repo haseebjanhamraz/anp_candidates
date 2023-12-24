@@ -1,4 +1,6 @@
-.wrapper {
+  @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+  .wrapper {
     width: 100%;
     background: #FFF;
     border-radius: 10px;
@@ -88,3 +90,7 @@ h1.title {
 input[type="radio"] {
     height: 14px;
   }
+
+.sign{
+    font-family: "Sacramento";
+}

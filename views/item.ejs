@@ -3,9 +3,9 @@
     <div class="container mt-4">
         <div class="row align-items-start">
             <div class="col">
-                <h1 class="border p-2">Candidate Information</h1>
-                <img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image" class="w-100 mb-3 img-thumbnail">
-                <h4>
+                <h1 class="border-bottom p-2 text-muted">Candidate Information</h1>
+                <img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image" class="w-75 mb-3 img-thumbnail rounded-circle">
+                <h4 class="text-uppercase fw-bold text-danger">
                     <%= item.name %>
                 </h4>
                 <h6>
@@ -31,8 +31,8 @@
                 </h6>
             </div>
             <div class="col">
-                <h1 class="border p-2">Suggester Information</h1>
-                <h4>
+                <h1 class="border-bottom p-2 text-muted">Suggester Information</h1>
+                <h4 class="text-uppercase fw-bold text-danger">
                     <%= item.suggesterName %>
                 </h4>
                 <h6>
@@ -52,8 +52,8 @@
                 </h6>
             </div>
             <div class="col">
-                <h1 class="border p-2">Vindicator Information</h1>
-                <h4>
+                <h1 class="border-bottom p-2 text-muted">Vindicator Information</h1>
+                <h4 class="text-uppercase fw-bold text-danger">
                     <%= item.vindicatorName %>
                 </h4>
                 <h6>
@@ -72,6 +72,22 @@
                     <span class="text-muted">Current Address:</span> <%= item.vindicatorCurrentAddress %>
                 </h6>
             </div>
+        </div>
+        <hr>
+        <div class="row align-items-start">
+            <h1 class="mb-3">Signatures</h1>
+            <div class="col">
+            <h6 class="text-muted">Candidate: <span class="sign fs-3"> <%= item.candidateSign %> </span> </h6>
+            <h6 class="text-muted">Suggester: <span class="sign fs-3"> <%= item.suggesterSign %> </span> </h6>
+            </div>
+            <div class="col">
+            <h6 class="text-muted">Vindicator: <span class="sign fs-3"> <%= item.vindicatorSign %> </span> </h6>
+            <h6 class="text-muted">UC President: <span class="sign fs-3"> <%= item.ucPresidentSign%> </span> </h6>
+            </div>
+            <div class="col">
+            <h6 class="text-muted">Tehsil President: <span class="sign fs-3"> <%= item.tehsilPresidentSign %> </span> </h6>
+            <h6 class="text-muted">District President: <span class="sign fs-3"> <%= item.districtPresidentSign %> </span> </h6>
+        </div>
         </div>
     </div>
 
