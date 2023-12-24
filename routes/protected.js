@@ -21,7 +21,7 @@ router.get('/edit/:id', isAuthenticated, async (req, res) => {
       return res.status(404).send('Item not found');
     }
 
-    res.render('edit', { item, user: req.user });
+    res.render('edit', { item, user: req.user, title: 'Edit Candidate' });
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

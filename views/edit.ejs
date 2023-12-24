@@ -1,74 +1,325 @@
 <%- include('partials/header') %>
-<div class="container mt-4">
-  <form action="/edit/<%= item._id %>" method="post" enctype="multipart/form-data">
+  <div class="container-100 justify-content-center">
+    <div class="wrapper">
+      <div class="form">
+        <h1 class="title">Edit <span class="text-danger"><%= item.name %></span> Details </h1>
+        <hr>
+          <form action="/edit/<%= item._id %>" method="post" class="myform" enctype="multipart/form-data">
+          <hr>
+          <h4 class="text-center">Candidate Information</h4>
+          <hr>
 
-    <div class="field">
-      <label for="profileImage" class="label">Profile Image:</label>
-      <div class="control">
-        <figure class="image is-4by4">
-        <img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image" class="image-preview ">
-    </figure>
-        <input type="file" id="profileImage" name="profileImage" class="input" accept="image/*">
+          <div class="control-form">
+            <label for="profileImage" class="label">Profile Image:</label>
+            <div class="control">
+              <figure class="image is-4by4">
+              <img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image" class="image-preview ">
+          </figure>
+              <input type="file" id="profileImage" name="profileImage" class="input" accept="image/*">
+            </div>
+          </div>
+
+          <div class="control-from">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" class="input" placeholder="Name" value="<%= item.name %>" required>
+          </div>
+
+          <div class="control-from">
+            <label for="fathername">Father Name *</label>
+            <input type="text" id="fathername" name="fathername" class="input" placeholder="Father Name" value=" <%= item.fathername%>" required>
+          </div>
+
+
+          <div class="field">
+            <label for="district" class="label">District*</label>
+            <div class="control">
+              <div class="select">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="district" name="district" required>
+                  <option value="Abbottabad" <%= item.district === 'Abbottabad' ? 'selected' : '' %>>Abbottabad</option>
+                  <option value="Bajaur" <%= item.district === 'Bajaur' ? 'selected' : '' %>>Bajaur</option>
+                  <option value="Bannu" <%= item.district === 'Bannu' ? 'selected' : '' %>>Bannu</option>
+                  <option value="Battagram" <%= item.district === 'Battagram' ? 'selected' : '' %>>Battagram</option>
+                  <option value="Buner" <%= item.district === 'Buner' ? 'selected' : '' %>>Buner</option>
+                  <option value="Charsadda" <%= item.district === 'Charsadda' ? 'selected' : '' %>>Charsadda</option>
+                  <option value="Chitral Lower" <%= item.district === 'Chitral Lower' ? 'selected' : '' %>>Chitral Lower</option>
+                  <option value="Chitral Upper" <%= item.district === 'Chitral Upper' ? 'selected' : '' %>>Chitral Upper</option>
+                  <option value="Dera ismail khan" <%= item.district === 'Dera ismail khan' ? 'selected' : '' %>>Dera ismail khan</option>
+                  <option value="Hangu" <%= item.district === 'Hangu' ? 'selected' : '' %>>Hangu</option>
+                  <option value="Haripur" <%= item.district === 'Haripur' ? 'selected' : '' %>>Haripur</option>
+                  <option value="Karak" <%= item.district === 'Karak' ? 'selected' : '' %>>Karak</option>
+                  <option value="Kohat" <%= item.district === 'Kohat' ? 'selected' : '' %>>Kohat</option>
+                  <option value="Lakki Marwat" <%= item.district === 'Lakki Marwat' ? 'selected' : '' %>>Lakki Marwat</option>
+                  <option value="Lower Dir" <%= item.district === 'Lower Dir' ? 'selected' : '' %>>Lower Dir</option>
+                  <option value="Lower Kohistan" <%= item.district === 'Lower Kohistan' ? 'selected' : '' %>>Lower Kohistan</option>
+                  <option value="Malakand" <%= item.district === 'Malakand' ? 'selected' : '' %>>Malakand</option>
+                  <option value="Mansehra" <%= item.district === 'Mansehra' ? 'selected' : '' %>>Mansehra</option>
+                  <option value="Mardan" <%= item.district === 'Mardan' ? 'selected' : '' %>>Mardan</option>
+                  <option value="Nowshehra" <%= item.district === 'Nowshehra' ? 'selected' : '' %>>Nowshehra</option>
+                  <option value="Peshawar" <%= item.district === 'Peshawar' ? 'selected' : '' %>>Peshawar</option>
+                  <option value="Shangla" <%= item.district === 'Shangla' ? 'selected' : '' %>>Shangla</option>
+                  <option value="Swabi" <%= item.district === 'Swabi' ? 'selected' : '' %>>Swabi</option>
+                  <option value="Swat" <%= item.district === 'Swat' ? 'selected' : '' %>>Swat</option>
+                  <option value="Tank" <%= item.district === 'Tank' ? 'selected' : '' %>>Tank</option>
+                  <option value="Torghar" <%= item.district === 'Torghar' ? 'selected' : '' %>>Torghar</option>
+                  <option value="Upper Dir" <%= item.district === 'Upper Dir' ? 'selected' : '' %>>Upper Dir</option>
+                  <option value="Upper Kohistan" <%= item.district === 'Upper Kohistan' ? 'selected' : '' %>>Upper Kohistan</option>
+                  <option value="South Waziristan" <%= item.district === 'South Waziristan' ? 'selected' : '' %>>South Waziristan</option>
+                  <option value="North Waziristan" <%= item.district === 'North Waziristan' ? 'selected' : '' %>>North Waziristan</option>
+                  <option value="Orakzai" <%= item.district === 'Orakzai' ? 'selected' : '' %>>Orakzai</option>
+                  <option value="Mohmand" <%= item.district === 'Mohmand' ? 'selected' : '' %>>Mohmand</option>
+                  <option value="Kurram" <%= item.district === 'Kurram' ? 'selected' : '' %>>Kurram</option>
+                  <option value="Kolai Palas" <%= item.district === 'Kolai Palas' ? 'selected' : '' %>>Kolai Palas</option>
+                  <option value="Upper Kohistan" <%= item.district === 'Upper Kohistan' ? 'selected' : '' %>>Upper Kohistan</option>
+                  <option value="Lower Kohistan" <%= item.district === 'Lower Kohistan' ? 'selected' : '' %>>Lower Kohistan</option>
+                  <option value="Khyber" <%= item.district === 'Khyber' ? 'selected' : '' %>>Khyber</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="control-from">
+            <label for="contactNumber">Contact Number *</label>
+            <input type="text" id="contactNumber" name="contactNumber" class="input" placeholder="Contact Number"
+              maxlength="11" value="<%= item.contactNumber %>" required>
+          </div>
+
+
+          <div class="field">
+            <label for="constituencyType" class="label">Constituency Type*</label>
+            <div class="control">
+              <div class="select">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                  id="constituencyType" name="constituencyType" required>
+                          <option value="NA"  <%= item.constituencyType== 'NA' ? 'selected' : '' %>>National Assembly - NA</option>
+                          <option value="PK" <%= item.constituencyType== 'PK' ? 'selected' : '' %>>Provincial Assembly - PK</option>
+                      </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-from">
+            <label for="constituency">Constituency# *</label>
+            <input type="number" id="constituency" name="constituency" maxlength="3" class="input" placeholder="eg; 59" value="<%= item.constituency %>"
+               required>
+          </div>
+
+          <div class="control-from">
+            <label for="cnic">CNIC# *</label>
+            <input type="text" id="cnic" name="cnic" class="input" maxlength="13" placeholder="1710132386724" value="<%= item.cnic %>">
+          </div>
+          <div class="full-width">
+            <label for="currentAddress">Current Address *</label>
+            <input type="text" id="currentAddress" name="currentAddress" class="input"
+              placeholder="Street, Village/ City" value="<%= item.currentAddress %>" required>
+          </div>
+          <div class="full-width">
+            <label for="permanentAddress">Permanent Address *</label>
+            <input type="text" id="permanentAddress" name="permanentAddress" class="input"
+              placeholder="Street, Village/ City" value="<%= item.permanentAddress%>" required>
+          </div>
+
+          <hr>
+          <h4 class="text-center">Suggester Information</h4>
+          <hr>
+          <div class="control-from">
+            <label for="suggesterName">Name *</label>
+            <input type="text" id="suggesterName" name="suggesterName" class="input" value="<%= item.suggesterName %>" required>
+          </div>
+
+          <div class="control-from">
+            <label for="suggesterFatherName">Father Name *</label>
+            <input type="text" id="suggesterFatherName" name="suggesterFatherName" class="input" value="<%= item.suggesterFatherName %>" required>
+          </div>
+
+          <div class="control-from">
+            <label for="contactNumber">Contact Number *</label>
+            <input type="text" id="suggesterContactNum" name="suggesterContactNum" class="input"
+              placeholder="Contact Number" maxlength="11" value="<%= item.suggesterContactNum %>" required>
+          </div>
+
+          <div class="control-from">
+            <label for="suggesterCNIC">CNIC# *</label>
+            <input type="text" id="suggesterCNIC" name="suggesterCNIC" class="input" maxlength="13"
+              placeholder="1710132386724" value="<%= item.suggesterCNIC %>" required>
+          </div>
+
+          <div class="control-form">
+            <label for="suggesterCurrentAddress">Current Address *</label>
+            <input type="text" id="suggesterCurrentAddress" name="suggesterCurrentAddress" class="input"
+              placeholder="Street, Village/ City" value="<%= item.suggesterCurrentAddress %>" required>
+          </div>
+
+          <div class="field">
+            <label for="suggConstTyp" class="label">Constituency Type*</label>
+            <div class="control">
+              <div class="select">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="suggConstTyp"
+                  name="suggConstTyp" required>
+                          <option value="NA" <%= item.suggConstTyp== 'NA' ? 'selected' : '' %>>National Assembly - NA</option>
+                          <option value="PK" <%= item.suggConstTyp== 'PK' ? 'selected' : '' %>>Provincial Assembly - PK</option>
+                      </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-from">
+            <label for="suggesterConstituency">Constituency# *</label>
+            <input type="number" id="suggesterConstituency" name="suggesterConstituency" maxlength="3" class="input"
+              placeholder="eg; 59" value="<%= item.suggesterConstituency %>"  required>
+          </div>
+
+
+          <div class="control-from"></div>
+          <div class="control-from"></div>
+
+
+          <hr>
+          <h4 class="text-center">Vindicator Information</h4>
+          <hr>
+
+          <div class="control-from">
+            <label for="vindicatorName">Name *</label>
+            <input type="text" id="vindicatorName" name="vindicatorName" class="input" value="<%= item.vindicatorName %>" required>
+          </div>
+
+          <div class="control-from">
+            <label for="vindicatorFatherName">Father Name *</label>
+            <input type="text" id="vindicatorFatherName" name="vindicatorFatherName" class="input" value="<%= item.vindicatorFatherName %>" required>
+          </div>
+
+          <div class="control-from">
+            <label for="vindicatorContactNum">Contact Number *</label>
+            <input type="text" id="vindicatorContactNum" name="vindicatorContactNum" class="input"
+              placeholder="Contact Number" maxlength="11" value="<%= item.vindicatorContactNum %>" required>
+          </div>
+
+          <div class="control-from">
+            <label for="vindicatorCNIC">CNIC# *</label>
+            <input type="text" id="vindicatorCNIC" name="vindicatorCNIC" class="input" maxlength="13"
+              placeholder="1710132386724" value="<%= item.vindicatorCNIC %>" required>
+          </div>
+
+          <div class="control-form">
+            <label for="vindicatorCurrentAddress">Current Address *</label>
+            <input type="text" id="vindicatorCurrentAddress" name="vindicatorCurrentAddress" class="input"
+              placeholder="Street, Village/ City" value="<%= item.vindicatorCurrentAddress %>" required>
+          </div>
+
+          <div class="field">
+            <label for="vindConstTyp" class="label">Constituency Type*</label>
+            <div class="control">
+              <div class="select">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="vindConstTyp"
+                  name="vindConstTyp" required>
+                          <option value="NA" <%= item.vindConstTyp== 'NA' ? 'selected' : '' %>>National Assembly - NA</option>
+                          <option value="PK"<%= item.vindConstTyp== 'NA' ? 'selected' : '' %>>Provincial Assembly - PK</option>
+                      </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-from">
+            <label for="vindicatorConstituency">Constituency# *</label>
+            <input type="number" id="vindicatorConstituency" name="vindicatorConstituency" maxlength="3" class="input"
+              placeholder="eg; 59" value="<%= item.vindicatorConstituency %>" required>
+          </div>
+          <div class="control-from">
+          </div>
+          <div class="control-from">
+          </div>
+
+          <!-- Signatures Verification -->
+
+
+          <div class="field">
+            <label class="label">Candidate Signature?</label>
+            <div class="control">
+              <label class="radio">
+                Signed
+                <input type="radio" name="candidateSign" value="signed" <%= item.candidateSign === 'signed' ? 'checked' : '' %> required checked>
+              </label>
+              <label class="radio">
+                Not Signed
+                <input type="radio" name="candidateSign" value="notSigned" <%= item.candidateSign === 'notSigned' ? 'checked' : '' %> required>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Suggester Signature?</label>
+            <div class="control">
+              <label class="radio">
+                Signed
+                <input type="radio" name="suggesterSign" value="signed" <%= item.suggesterSign === 'signed' ? 'checked' : '' %> required checked>
+              </label>
+              <label class="radio">
+                Not Signed
+                <input type="radio" name="suggesterSign" value="notSigned" <%= item.suggesterSign === 'notSigned' ? 'checked' : '' %> required>
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Vindicator Signature?</label>
+            <div class="control">
+              <label class="radio">
+                Signed
+                <input type="radio" name="vindicatorSign" value="signed" <%= item.vindicatorSign === 'signed' ? 'checked' : '' %> required checked>
+              </label>
+              <label class="radio">
+                Not Signed
+                <input type="radio" name="vindicatorSign" value="notSigned" <%= item.vindicatorSign === 'notSigned' ? 'checked' : '' %> required>
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Union Council President Signature?</label>
+            <div class="control">
+              <label class="radio">
+                Signed
+                <input type="radio" name="ucPresidentSign" value="signed" <%= item.ucPresidentSign === 'signed' ? 'checked' : '' %> required checked>
+              </label>
+              <label class="radio">
+                Not Signed
+                <input type="radio" name="ucPresidentSign" value="notSigned" <%= item.ucPresidentSign=== 'notSigned' ? 'checked' : '' %> required>
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Tehsil President Signature?</label>
+            <div class="control">
+              <label class="radio">
+                Signed
+                <input type="radio" name="tehsilPresidentSign" value="signed" <%= item.tehsilPresidentSign === 'signed' ? 'checked' : '' %> required checked>
+
+              </label>
+              <label class="radio">
+                Not Signed
+                <input type="radio" name="tehsilPresidentSign" value="notSigned" <%= item.tehsilPresidentSign === 'notSigned' ? 'checked' : '' %> required>
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">District President ANP Signature?</label>
+            <div class="control">
+              <label class="radio">
+                Signed
+                <input type="radio" name="districtPresidentSign" value="signed" <%= item.districtPresidentSign === 'signed' ? 'checked' : '' %> required checked>
+              </label>
+              <label class="radio">
+                Not Signed
+                <input type="radio" name="districtPresidentSign" value="notSigned" <%= item.districtPresidentSign === 'notSigned' ? 'checked' : '' %> required>
+              </label>
+            </div>
+          </div>
+
+          <div class="button">
+            <button type="submit" id="register">Register</button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 
-    <div class="field">
-      <label for="name" class="label">Name:</label>
-      <div class="control">
-        <input type="text" id="name" name="name" class="input" value="<%= item.name %>" required>
-      </div>
-    </div>
 
-    <div class="field">
-      <label for="username" class="label">Username:</label>
-      <div class="control">
-        <input type="text" id="username" name="username" class="input" value="<%= item.username %>" required>
-      </div>
-    </div>
-
-    <div class="field">
-      <label for="email" class="label">Email:</label>
-      <div class="control">
-        <input type="email" id="email" name="email" class="input" value="<%= item.email %>" required>
-      </div>
-    </div>
-
-    <div class="field">
-      <label for="subject" class="label">Subject:</label>
-      <div class="control">
-        <input type="text" id="subject" name="subject" class="input" value="<%= item.subject %>" required>
-      </div>
-    </div>
-
-    <div class="field">
-      <label for="message" class="label">Message:</label>
-      <div class="control">
-        <textarea id="message" name="message" class="textarea" required><%= item.message %></textarea>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label">Question:</label>
-      <div class="control">
-        <label class="radio">
-          <input type="radio" name="question" value="Yes" <% if (item.question === 'Yes') { %>checked<% } %> required>
-          Yes
-        </label>
-        <label class="radio">
-          <input type="radio" name="question" value="No" <% if (item.question === 'No') { %>checked<% } %> required>
-          No
-        </label>
-      </div>
-    </div>
-
-    <div class="field is-grouped">
-      <div class="control">
-        <button type="submit" class="button is-link">Update</button>
-      </div>
-      <div class="control">
-        <a href="/" class="button is-link is-light">Cancel</a>
-      </div>
-    </div>
-  </form>
-</div>
-<%- include('partials/footer') %>
+  <%- include('partials/footer') %>
