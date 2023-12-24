@@ -20,8 +20,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/anp-candidates-database', { useNewUrlParser: true, useUnifiedTopology: true });
-
+mongoose.connect('mongodb+srv://haseebjanhamraz:nnLWE92stjSDU9VI@anpcluster.behcnv3.mongodb.net/anp-candidates-database?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+// mongodb+srv://haseebjanhamraz:nnLWE92stjSDU9VI@anpcluster.behcnv3.mongodb.net/anp-candidates-database?retryWrites=true&w=majority
 // Express middleware
 app.use(express.urlencoded({ extended: true }));
 
