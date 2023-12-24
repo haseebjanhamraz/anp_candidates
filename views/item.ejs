@@ -1,6 +1,81 @@
 <%- include('partials/header') %>
 
+    <div class="container mt-4">
+        <div class="row align-items-start">
+            <div class="col">
+                <h1 class="border p-2">Candidate Information</h1>
+                <img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image" class="w-100 mb-3 img-thumbnail">
+                <h4>
+                    <%= item.name %>
+                </h4>
+                <h6>
+                    <span class="text-muted">Father Name:</span> <%= item.fathername %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Constituency:</span> <%= item.constituencyType%> <%= item.constituency %>
+                </h6>
+                <h6>
+                    <span class="text-muted">District:</span> <%= item.district %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Contact Number:</span> <%= item.contactNumber %>
+                </h6>
+                <h6>
+                    <span class="text-muted">CNIC#</span> <%= item.cnic %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Current Address:</span> <%= item.currentAddress %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Permanent Address:</span> <%= item.permanentAddress %>
+                </h6>
+            </div>
+            <div class="col">
+                <h1 class="border p-2">Suggester Information</h1>
+                <h4>
+                    <%= item.suggesterName %>
+                </h4>
+                <h6>
+                    <span class="text-muted">Father Name:</span> <%= item.suggesterFatherName %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Constituency</span> <%= item.suggConstTyp %> <%= item.suggesterConstituency %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Contact Number:</span> <%= item.suggesterContactNum %>
+                </h6>
+                <h6>
+                    <span class="text-muted">CNIC#:</span> <%= item.suggesterContactNum %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Current Address:</span> <%= item.suggesterCurrentAddress %>
+                </h6>
+            </div>
+            <div class="col">
+                <h1 class="border p-2">Vindicator Information</h1>
+                <h4>
+                    <%= item.vindicatorName %>
+                </h4>
+                <h6>
+                    <span class="text-muted">Father Name:</span> <%= item.vindicatorFatherName %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Constituency</span> <%= item.vindConstTyp %> <%= item.vindicatorConstituency %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Contact Number:</span> <%= item.vindicatorContactNum %>
+                </h6>
+                <h6>
+                    <span class="text-muted">CNIC#:</span> <%= item.vindicatorCNIC %>
+                </h6>
+                <h6>
+                    <span class="text-muted">Current Address:</span> <%= item.vindicatorCurrentAddress %>
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
 <h1><%= item.name %></h1>
-<img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image" class="image-preview ">
-</div>
-<%- include('partials/footer') %>
+<img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image" class="image-preview "> -->
+    <%- include('partials/footer') %>
