@@ -2,9 +2,9 @@
   <section class="team-grid">
     <div class="container">
       <div class="row people">
-        <h1 class="mb-3">ANP Candidates Database</h1>
-        <% if (items.length> 0) { %>
-          <% items.forEach(item=> { %>
+        <% if (ticketHolder.length> 0) { %>
+          <h4>ANP Ticket Holders <span class="badge bg-danger"> <%= ticketHolder.length %> </span></h4>
+          <% ticketHolder.forEach(item=> { %>
             <div class="col-md-4 col-lg-3 item">
               <div class="box" style="background-image:url('<%= item.imagePath %>')">
                 <div class="cover">
@@ -24,6 +24,44 @@
               <% } else { %>
                 <%- include('errors/no_records_found') %>
                   <% } %>
+      </div>
+      <div class="container">
+        <h4>All Applicants <span class="badge bg-secondary"> <%= items.length %> </span></h4>
+        <hr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Constituency</th>
+              <th scope="col">District</th>
+              <th scope="col">Suggester</th>
+              <th scope="col">Vindicator</th>
+              <th scope="col">Contact#</th>
+              <th scope="col">Current Address</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (items.length> 0) { %>
+            <% items.forEach(function(item, index) { %>
+              <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <th><%= item.name %></th>
+              <td><%= item.constituency %></td>
+              <td><%= item.district %></td>
+              <td><%= item.suggesterName %></td>
+              <td><%= item.vindicatorName %></td>
+              <td><%= item.contactNumber %></td>
+              <td><%= item.currentAddress %></td>
+              <td><a class="text-decoration-none" href="/item/<%=item._id%>"> <button type="button" class="btn btn-success">View <i class="fas fa-search"></i></button></a> </td>
+            </tr>
+            <% }); %>
+            <% } else { %>
+              <% } %>
+          </tbody>
+        </table>
+        <p></p>
       </div>
     </div>
   </section>
