@@ -11,9 +11,12 @@
     <div class="container mt-4">
         <div class="row align-items-start">
             <div class="col border">
+                
                 <h2 class="border-bottom p-2 text-muted">Candidate Information</h2>
+                <div class="row d-flex justify-content-center">
                 <img src="../<%= item.imagePath %>" alt="<%= item.name %>'s Image"
-                    class="w-75 mb-3 img-thumbnail rounded-circle">
+                    class="w-75 mb-3 img-thumbnail rounded-circle border-light shadow-lg p-3 mb-5 bg-body rounded">
+                </div>
                 <h4 class="text-uppercase fw-bold text-danger">
                     <%= item.name %>
                 </h4>
