@@ -62,6 +62,7 @@ router.post(
         ucPresidentSign,
         tehsilPresidentSign,
         districtPresidentSign,
+        ticketIssued,
       } = req.body;
 
       // Get the uploaded image file
@@ -98,6 +99,7 @@ router.post(
         ucPresidentSign,
         tehsilPresidentSign,
         districtPresidentSign,
+        ticketIssued,
         profileImage: profileImage.filename, // Save the filename to the database
       });
 
@@ -172,6 +174,7 @@ router.post("/edit/:id", upload.single("profileImage"), async (req, res) => {
     item.ucPresidentSign= req.body.ucPresidentSign;
     item.tehsilPresidentSign= req.body.tehsilPresidentSign;
     item.districtPresidentSign= req.body.districtPresidentSign;
+    item.ticketIssued= req.body.ticketIssued;
     
     // If a new image is provided, update the imagePath
     if (req.file) {

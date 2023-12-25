@@ -32,6 +32,7 @@ const itemSchema = new mongoose.Schema({
   ucPresidentSign: { type: String, required: true },
   tehsilPresidentSign: { type: String, required: true },
   districtPresidentSign: { type: String, required: true },
+  ticketIssued: { type: String, required: false },
 
   imagePath: {type: String, required: true},
 });

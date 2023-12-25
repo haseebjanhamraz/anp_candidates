@@ -94,3 +94,16 @@ input[type="radio"] {
 .sign{
     font-family: "Sacramento";
 }
+
+#ticketIssued{
+    height: 20px;
+}
+.ticket{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.ticket img{
+    rotate: -20deg;
+    width: 200px;
+}

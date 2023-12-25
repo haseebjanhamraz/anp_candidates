@@ -49,7 +49,8 @@ router.post("/add", upload.single("profileImage"), async (req, res) => {
       ucPresidentSign: req.body.ucPresidentSign,
       tehsilPresidentSign: req.body.tehsilPresidentSign,
       districtPresidentSign: req.body.districtPresidentSign,
-      imagePath: relativeFilePath, // Ensure 'imagePath' is a field in your Item model
+      ticketIssued: req.body.ticketIssued,
+      imagePath: relativeFilePath,
     });
 
     await newItem.save();
