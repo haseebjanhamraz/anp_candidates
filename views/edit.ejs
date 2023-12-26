@@ -310,11 +310,13 @@
                 Not Signed
                 <input type="radio" name="districtPresidentSign" value="notSigned" <%= item.districtPresidentSign === 'notSigned' ? 'checked' : '' %> required>
               </label>
+            <label for="ticketIssued" class="text-primary">Does party issued ticket to this applicant?*</label>
+            <input type="checkbox" name="ticketIssued" id="ticketIssued" value="issued" <%= item.ticketIssued === 'issued' ? 'checked' : '' %> required checked>
             </div>
           </div>
 
           <div class="button">
-            <button type="submit" id="register">Register</button>
+            <button type="submit" id="register">Save</button>
           </div>
         </form>
       </div>
