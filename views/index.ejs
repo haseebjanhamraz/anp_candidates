@@ -1,6 +1,6 @@
 <%- include('partials/header') %>
   <section class="team-grid">
-    <div class="container">
+    <div class="container m-6">
       <div class="row people">
         <% if (ticketHolder.length> 0) { %>
           <h4>ANP Ticket Holders <span class="badge bg-danger"> <%= ticketHolder.length %> </span></h4>
@@ -61,7 +61,9 @@
               <% } %>
           </tbody>
         </table>
-        <p></p>
+        <div class="container mb-4">
+          <%- include('components/counter') %>
+        </div>
       </div>
     </div>
   </section>

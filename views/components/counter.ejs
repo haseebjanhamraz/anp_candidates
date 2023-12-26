@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+
+	<div class="four col">
+		<div class="counter-box colored rounded">
+            <i class="fas fa-check-circle"></i>
+            <span class="counter"><%= ticketHolder.length %></span>
+            <p>Tickets Alloted</p>
+		</div>
+	</div>
+	<div class="four col">
+        <div class="counter-box rounded">
+            <i class="fas fa-ticket-alt"></i>
+            <span class="counter"><%= items.length %></span>
+            <p>Total Applicants</p>
+		</div>
+	</div>
+  </div>	
+</div>
+<script>
+    
+        
+        
+$(document).ready(function() {
+
+$('.counter').each(function () {
+$(this).prop('Counter',0).animate({
+Counter: $(this).text()
+}, {
+duration: 4000,
+easing: 'swing',
+step: function (now) {
+    $(this).text(Math.ceil(now));
+}
+});
+});
+
+});  
+
+
+
+
+</script>
