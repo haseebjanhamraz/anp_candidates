@@ -37,16 +37,11 @@
                     <span class="text-muted">District:</span>
                     <%= item.district %>
                 </h6>
-                <% if (user) { %>
                 <h6>
                     <span class="text-muted">Contact Number:</span>
                     <%= item.contactNumber %>
                 </h6>
                 
-                <h6>
-                    <span class="text-muted">CNIC#</span>
-                    <%= item.cnic %>
-                </h6>
                 <h6>
                     <span class="text-muted">Current Address:</span>
                     <%= item.currentAddress %>
@@ -56,13 +51,18 @@
                     <%= item.permanentAddress %>
                 </h6>
 
+                <% if (user) { %>
+                <h6>
+                    <span class="text-muted">CNIC#</span>
+                    <%= item.cnic %>
+                </h6>     
             </div>
             <%- include('components/suggesterInfo') %>
             <%- include('components/vindicatorInfo') %>
         </div>
         <hr>
         <div class="row align-items-start">
-            <h1 class="mb-3">Signatures</h1>
+            <h1 class="mb-3">Signature Authorities:</h1>
             <div class="col">
                 <h6 class="text-muted">Candidate: <span
                     class="sign fs-3 <%= item.candidateSign == 'signed' ? 'signed' : 'not-signed' %>">

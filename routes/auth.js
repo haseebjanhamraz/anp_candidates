@@ -55,9 +55,13 @@ router.post('/login', (req, res, next) => {
     }
 
     if (!user) {
-      console.log('Invalid username or password');
       req.flash('error', 'Invalid username or password.');
       return res.redirect('/auth/login');
+    }
+    if (user.status !== 'active') {
+      req.flash('error', 'User is not active');
+      return res.redirect('/auth/login');
+      // return res.status(401).json({ message: 'User is inactive' });
     }
 
     req.logIn(user, (loginErr) => {

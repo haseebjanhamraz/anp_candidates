@@ -4,7 +4,11 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,
-  // ... other fields
+  status: {
+    type: String,
+    enum: ['active', 'inactive'],
+    default: 'inactive',
+  },
 });
 
 userSchema.plugin(passportLocalMongoose);

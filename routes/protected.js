@@ -29,7 +29,7 @@ router.get('/edit/:id', isAuthenticated, async (req, res) => {
 });
 
 // Protected route to add an item
-router.get('/add', isAuthenticated, (req, res) => {
+router.get('/add', isAuthenticated,  (req, res) => {
   // Your logic for the 'add' route goes here
   // For example, you might want to render a form to add a new item
   res.render('add', { user: req.user, title: 'Add New Candidate' });

@@ -5,6 +5,7 @@ const Item = require("../models/item");
 const { upload } = require("../config/multer"); // Adjusted import
 const user = require("../models/User");
 const isAuthenticated = require("./protected"); // Update this line
+const checkUserStatus = require("../middleware/checkUserStatus");
 
 // Index route
 router.get("/", async (req, res) => {
