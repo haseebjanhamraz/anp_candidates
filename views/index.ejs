@@ -1,6 +1,9 @@
 <%- include('partials/header') %>
   <section class="team-grid">
     <div class="container m-6">
+      <div class="container mb-4">
+        <%- include('components/counter') %>
+      </div>
       <div class="row people">
         <% if (ticketHolder.length> 0) { %>
           <h4>ANP Ticket Holders <span class="badge bg-danger"> <%= ticketHolder.length %> </span></h4>
@@ -13,20 +16,21 @@
                   </h3>
                   <p class="title">
                     <%= item.district %> - <%= item.constituencyType %>
-                        <%= item.constituency %>
+                    <%= item.constituency %>
                   </p>
                   <a href="/item/<%= item._id %>"><button class="btn btn-primary" type="button"
-                      style="width: 50px;font-size: 12px;">View</button></a>
+                    style="width: 50px;font-size: 12px;">View</button></a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <% }); %>
+              <% }); %>
               <% } else { %>
                 <%- include('errors/no_records_found') %>
-                  <% } %>
-      </div>
-      <div class="container">
-        <h4>All Applicants <span class="badge bg-secondary"> <%= items.length %> </span></h4>
+                <% } %>
+              </div>
+              <% if (user) { %>
+              <div class="container">
+                <h4>All Applicants <span class="badge bg-secondary"> <%= items.length %> </span></h4>
         <hr>
         <table class="table">
           <thead>
@@ -61,9 +65,6 @@
               <% } %>
           </tbody>
         </table>
-        <div class="container mb-4">
-          <%- include('components/counter') %>
-        </div>
         <div class="container">
           <h4>Districts</h4>
           <% if (districts.length> 0) { %>
@@ -74,8 +75,8 @@
                   <%- include('errors/no_records_found') %>
                     <% } %>
         </div>
-        
       </div>
+      <% } %>
     </div>
   </section>
   <%- include('partials/footer') %>
