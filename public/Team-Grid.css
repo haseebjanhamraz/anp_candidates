@@ -56,7 +56,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(31,148,255,0.75);
+  background-color: rgba(255, 0, 0, 0.476);
   transition: opacity 0.15s ease-in;
   opacity: 0;
   padding-top: 80px;
@@ -76,7 +76,7 @@
 .team-grid .item .title {
   text-transform: uppercase;
   font-weight: bold;
-  color: #bbd8fb;
+  color: #e7fbbb;
   letter-spacing: 2px;
   font-size: 13px;
   margin-bottom: 20px;
