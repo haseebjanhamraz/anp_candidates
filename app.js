@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -9,6 +10,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 const { upload } = require('./config/multer');
+
 
 
 const authRoutes = require('./routes/auth');
