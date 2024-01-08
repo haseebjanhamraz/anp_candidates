@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "ANP Database for Election 2024 - 2029 Candidates",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "build:css": "postcss src/styles.css -o public/styles.css"
+  },
   "keywords": [
     "ANP",
     "Database",
