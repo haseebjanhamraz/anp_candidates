@@ -1,14 +1,15 @@
 {
   "name": "new_anp_database",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "postcss src/styles.css -o public/styles.css"
-  },
-  "keywords": [],
-  "author": "",
+  "description": "ANP Database for Election 2024 - 2029 Candidates",
+  "main": "app.js",
+  "keywords": [
+    "ANP",
+    "Database",
+    "Election",
+    "Candidates"
+  ],
+  "author": "Khyber Cybers (Pvt.) Ltd.",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.16",
@@ -31,5 +32,8 @@
     "postcss": "^8.4.32",
     "postcss-cli": "^11.0.0",
     "postcss-purgecss": "^5.0.0"
+  },
+  "engines": {
+    "node": "20.10.0"
   }
 }
