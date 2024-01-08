@@ -33,8 +33,9 @@ const itemSchema = new mongoose.Schema({
   tehsilPresidentSign: { type: String, required: true },
   districtPresidentSign: { type: String, required: true },
   ticketIssued: { type: String, required: false },
-
   imagePath: {type: String, required: true},
+  createdAt: { type: Date },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
 const Item = mongoose.model('Item', itemSchema);

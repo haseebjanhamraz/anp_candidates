@@ -98,6 +98,7 @@
                     <a href="/delete/<%= item._id %>"><button type="button" class="btn btn-danger">Delete</button> </a>
                 </div>
             </div>
+            <p class="text-muted text-info text-xl-left">Record created by: <%= item.createdBy %> on <%= item.createdAt %> </p>
         </div>
         <% } %>
         

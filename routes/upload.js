@@ -51,6 +51,8 @@ router.post("/add", upload.single("profileImage"), async (req, res) => {
       districtPresidentSign: req.body.districtPresidentSign,
       ticketIssued: req.body.ticketIssued,
       imagePath: relativeFilePath,
+      createdAt: new Date(),
+      createdBy: req.user._id,
     });
 
     await newItem.save();

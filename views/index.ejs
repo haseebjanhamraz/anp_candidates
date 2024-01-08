@@ -6,7 +6,9 @@
       </div>
       <div class="row people">
         <% if (ticketHolder.length> 0) { %>
-          <h4>ANP Ticket Holders <span class="badge bg-danger"> <%= ticketHolder.length %> </span></h4>
+          <h4>ANP Ticket Holders <span class="badge bg-danger">
+              <%= ticketHolder.length %>
+            </span></h4>
           <% ticketHolder.forEach(item=> { %>
             <div class="col-md-4 col-lg-3 item">
               <div class="box" style="background-image:url('<%= item.imagePath %>')">
@@ -16,67 +18,254 @@
                   </h3>
                   <p class="title">
                     <%= item.district %> - <%= item.constituencyType %>
-                    <%= item.constituency %>
+                        <%= item.constituency %>
                   </p>
                   <a href="/item/<%= item._id %>"><button class="btn btn-primary" type="button"
-                    style="width: 50px;font-size: 12px;">View</button></a>
-                  </div>
+                      style="width: 50px;font-size: 12px;">View</button></a>
                 </div>
               </div>
-              <% }); %>
+            </div>
+            <% }); %>
               <% } else { %>
                 <%- include('errors/no_records_found') %>
-                <% } %>
-              </div>
-              <% if (user) { %>
-              <div class="container">
-                <h4>All Applicants <span class="badge bg-secondary"> <%= items.length %> </span></h4>
-        <hr>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Constituency</th>
-              <th scope="col">District</th>
-              <th scope="col">Suggester</th>
-              <th scope="col">Vindicator</th>
-              <th scope="col">Contact#</th>
-              <th scope="col">Current Address</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% if (items.length> 0) { %>
-            <% items.forEach(function(item, index) { %>
-              <tr>
-              <th scope="row"><%= index + 1 %></th>
-              <th><%= item.name %></th>
-              <td><%= item.constituency %></td>
-              <td><%= item.district %></td>
-              <td><%= item.suggesterName %></td>
-              <td><%= item.vindicatorName %></td>
-              <td><%= item.contactNumber %></td>
-              <td><%= item.currentAddress %></td>
-              <td><a class="text-decoration-none" href="/item/<%=item._id%>"> <button type="button" class="btn btn-success">View <i class="fas fa-search"></i></button></a> </td>
-            </tr>
-            <% }); %>
-            <% } else { %>
-              <% } %>
-          </tbody>
-        </table>
-        <div class="container">
-          <h4>Districts</h4>
-          <% if (districts.length> 0) { %>
-            <% districts.forEach((district) => { %>
-              <a href="/district/<%= district %>"><button type="button" class="btn btn-primary m-1"><%= district %></button></a>
-              <% }); %>
-                <% } else { %>
-                  <%- include('errors/no_records_found') %>
-                    <% } %>
-        </div>
+                  <% } %>
       </div>
-      <% } %>
+      <% if (user) { %>
+        <div class="container">
+          <h4>All Applicants <span class="badge bg-secondary">
+              <%= items.length %>
+            </span></h4>
+            <div class="form-group w-25"> 	<!--		Show Numbers Of Rows 		-->
+              <p>Items per page</p>
+              <select class  ="form-control" name="state" id="maxRows">
+                <option value="5000">Show ALL Rows</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="70">70</option>
+                <option value="100">100</option>
+               </select>
+             </div>
+          <hr>
+          <table class="table table-striped table-class" id="table-id">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Constituency</th>
+                <th scope="col">District</th>
+                <th scope="col">Suggester</th>
+                <th scope="col">Vindicator</th>
+                <th scope="col">Contact#</th>
+                <th scope="col">Current Address</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (items.length > 0) { %>
+                <% items.forEach(function(item, index) { %>
+                  <tr>
+                    <th>
+                      <%= item.name %>
+                    </th>
+                    <td>
+                      <%= item.constituency %>
+                    </td>
+                    <td>
+                      <%= item.district %>
+                    </td>
+                    <td>
+                      <%= item.suggesterName %>
+                    </td>
+                    <td>
+                      <%= item.vindicatorName %>
+                    </td>
+                    <td>
+                      <%= item.contactNumber %>
+                    </td>
+                    <td>
+                      <%= item.currentAddress %>
+                    </td>
+                    <td><a class="text-decoration-none" href="/item/<%=item._id%>"> <button type="button"
+                          class="btn btn-success">View <i class="fas fa-search"></i></button></a> </td>
+                  </tr>
+                  <% }); %>
+                    <% }%>
+            </tbody>
+          </table>
+          <div class="container">
+            <h4>Districts</h4>
+            <% if (districts.length> 0) { %>
+              <% districts.forEach((district)=> { %>
+                <a href="/district/<%= district %>"><button type="button" class="btn btn-primary m-1">
+                    <%= district %>
+                  </button></a>
+                <% }); %>
+                  <% } else { %>
+                    <%- include('errors/no_records_found') %>
+                      <% } %>
+          </div>
+        </div>
+        <% } %>
     </div>
   </section>
+
+  <script>
+              getPagination('#table-id');
+					//getPagination('.table-class');
+					//getPagination('table');
+
+		  /*					PAGINATION 
+		  - on change max rows select options fade out all rows gt option value mx = 5
+		  - append pagination list as per numbers of rows / max rows option (20row/5= 4pages )
+		  - each pagination li on click -> fade out all tr gt max rows * li num and (5*pagenum 2 = 10 rows)
+		  - fade out all tr lt max rows * li num - max rows ((5*pagenum 2 = 10) - 5)
+		  - fade in all tr between (maxRows*PageNum) and (maxRows*pageNum)- MaxRows 
+		  */
+		 
+
+function getPagination(table) {
+  var lastPage = 1;
+
+  $('#maxRows')
+    .on('change', function(evt) {
+      //$('.paginationprev').html('');						// reset pagination
+
+     lastPage = 1;
+      $('.pagination')
+        .find('li')
+        .slice(1, -1)
+        .remove();
+      var trnum = 0; // reset tr counter
+      var maxRows = parseInt($(this).val()); // get Max Rows from select option
+
+      if (maxRows == 5000) {
+        $('.pagination').hide();
+      } else {
+        $('.pagination').show();
+      }
+
+      var totalRows = $(table + ' tbody tr').length; // numbers of rows
+      $(table + ' tr:gt(0)').each(function() {
+        // each TR in  table and not the header
+        trnum++; // Start Counter
+        if (trnum > maxRows) {
+          // if tr number gt maxRows
+
+          $(this).hide(); // fade it out
+        }
+        if (trnum <= maxRows) {
+          $(this).show();
+        } // else fade in Important in case if it ..
+      }); //  was fade out to fade it in
+      if (totalRows > maxRows) {
+        // if tr total rows gt max rows option
+        var pagenum = Math.ceil(totalRows / maxRows); // ceil total(rows/maxrows) to get ..
+        //	numbers of pages
+        for (var i = 1; i <= pagenum; ) {
+          // for each page append pagination li
+          $('.pagination #prev')
+            .before(
+              '<li data-page="' +
+                i +
+                '">\
+								  <span>' +
+                i++ +
+                '<span class="sr-only">(current)</span></span>\
+								</li>'
+            )
+            .show();
+        } // end for i
+      } // end if row count > max rows
+      $('.pagination [data-page="1"]').addClass('active'); // add active class to the first li
+      $('.pagination li').on('click', function(evt) {
+        // on click each page
+        evt.stopImmediatePropagation();
+        evt.preventDefault();
+        var pageNum = $(this).attr('data-page'); // get it's number
+
+        var maxRows = parseInt($('#maxRows').val()); // get Max Rows from select option
+
+        if (pageNum == 'prev') {
+          if (lastPage == 1) {
+            return;
+          }
+          pageNum = --lastPage;
+        }
+        if (pageNum == 'next') {
+          if (lastPage == $('.pagination li').length - 2) {
+            return;
+          }
+          pageNum = ++lastPage;
+        }
+
+        lastPage = pageNum;
+        var trIndex = 0; // reset tr counter
+        $('.pagination li').removeClass('active'); // remove active class from all li
+        $('.pagination [data-page="' + lastPage + '"]').addClass('active'); // add active class to the clicked
+        // $(this).addClass('active');					// add active class to the clicked
+	  	limitPagging();
+        $(table + ' tr:gt(0)').each(function() {
+          // each tr in table not the header
+          trIndex++; // tr index counter
+          // if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
+          if (
+            trIndex > maxRows * pageNum ||
+            trIndex <= maxRows * pageNum - maxRows
+          ) {
+            $(this).hide();
+          } else {
+            $(this).show();
+          } //else fade in
+        }); // end of for each tr in table
+      }); // end of on click pagination list
+	  limitPagging();
+    })
+    .val(5)
+    .change();
+
+  // end of on select change
+
+  // END OF PAGINATION
+}
+
+function limitPagging(){
+	// alert($('.pagination li').length)
+
+	if($('.pagination li').length > 7 ){
+			if( $('.pagination li.active').attr('data-page') <= 3 ){
+			$('.pagination li:gt(5)').hide();
+			$('.pagination li:lt(5)').show();
+			$('.pagination [data-page="next"]').show();
+		}if ($('.pagination li.active').attr('data-page') > 3){
+			$('.pagination li:gt(0)').hide();
+			$('.pagination [data-page="next"]').show();
+			for( let i = ( parseInt($('.pagination li.active').attr('data-page'))  -2 )  ; i <= ( parseInt($('.pagination li.active').attr('data-page'))  + 2 ) ; i++ ){
+				$('.pagination [data-page="'+i+'"]').show();
+
+			}
+
+		}
+	}
+}
+
+$(function() {
+  // Just to append id number for each row
+  $('table tr:eq(0)').prepend('<th> ID </th>');
+
+  var id = 0;
+
+  $('table tr:gt(0)').each(function() {
+    id++;
+    $(this).prepend('<td>' + id + '</td>');
+  });
+});
+
+//  Developed By Yasser Mas
+// yasser.mas2@gmail.com
+
+  </script>
+
+  
   <%- include('partials/footer') %>
