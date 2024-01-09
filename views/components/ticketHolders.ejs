@@ -1,0 +1,26 @@
+<div class="row people">
+    <% if (ticketHolder.length> 0) { %>
+      <h4>ANP Ticket Holders <span class="badge bg-danger">
+          <%= ticketHolder.length %>
+        </span></h4>
+      <% ticketHolder.forEach(item=> { %>
+        <div class="col-md-4 col-lg-3 item">
+          <div class="box" style="background-image:url('<%= item.imagePath %>')">
+            <div class="cover">
+              <h3 class="name">
+                <%= item.name %>
+              </h3>
+              <p class="title">
+                <%= item.district %> - <%= item.constituencyType %>
+                    <%= item.constituency %>
+              </p>
+              <a href="/item/<%= item._id %>"><button class="btn btn-primary" type="button"
+                  style="width: 50px;font-size: 12px;">View</button></a>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+          <% } else { %>
+            <%- include('errors/no_records_found') %>
+              <% } %>
+  </div>

@@ -13,7 +13,6 @@ router.get("/", async (req, res) => {
   const user = req.user;
   const items = await Item.find();
   let districts = [...new Set(items.map(item => item.district))];
-  console.log(districts)
   const ticketHolder = await Item.find({ ticketIssued: 'issued' });
   res.render("index", { items, districts, ticketHolder, user: req.user, title: "Home" });
 });
@@ -23,11 +22,18 @@ router.get('/item/:id', async (req, res) => {
     const user = req.user;
     res.render('item', { item, user, title: 'Candidate Details' });
   } catch (error) {
-    console.error(error);
     res.status(500).send('Internal Server Error');
   }
 });
 
+// Index route
+router.get("/dashboard/", isAuthenticated, async (req, res) => {
+  const user = req.user;
+  const items = await Item.find();
+  let districts = [...new Set(items.map(item => item.district))];
+  const ticketHolder = await Item.find({ ticketIssued: 'issued' });
+  res.render("dashboard/index", { items, districts, ticketHolder, user: req.user, title: "Home" });
+});
 
 // Handle form submission
 router.post(

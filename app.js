@@ -64,6 +64,6 @@ app.use('/', indexRoutes);                // Use '/' as the base path for non-pr
 
 
 const port = process.env.PORT || 3000;
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, 'localhost', () => {
   console.log(`Server is running on port ${port}`);
 });

@@ -1,0 +1,12 @@
+<div class="container">
+    <h4>Districts</h4>
+    <% if (districts.length> 0) { %>
+      <% districts.forEach((district)=> { %>
+        <a href="/district/<%= district %>"><button type="button" class="btn btn-primary m-1">
+            <%= district %>
+          </button></a>
+        <% }); %>
+          <% } else { %>
+            <%- include('errors/no_records_found') %>
+              <% } %>
+  </div>
