@@ -65,5 +65,5 @@ app.use('/', indexRoutes);                // Use '/' as the base path for non-pr
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://3.135.212.78:${PORT}`);
 });
