@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { upload } = require("../config/multer");
 const cloudinary = require("cloudinary").v2; // Import the cloudinary library
-const Item = require("../models/item");
+const Item = require("../models/Item");
 const isAuthenticated = require("./protected"); // Assuming this import is correct
 
 // Configure Cloudinary
