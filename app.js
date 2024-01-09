@@ -19,7 +19,7 @@ const protectedRoutes = require('./routes/protected');
 const uploadRoutes = require('./routes/upload')
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+
 
 // MongoDB connection
 mongoose.connect('mongodb+srv://haseebjanhamraz:nnLWE92stjSDU9VI@anpcluster.behcnv3.mongodb.net/anp-candidates-database?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -63,7 +63,7 @@ app.use(uploadRoutes);        // Use '/upload' as the base path for upload route
 app.use('/', indexRoutes);                // Use '/' as the base path for non-protected routes
 
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is running on port ${port}`);
 });
