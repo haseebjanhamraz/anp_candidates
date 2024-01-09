@@ -22,7 +22,9 @@ router.get("/add", isAuthenticated, (req, res) => {
 router.post("/add", upload.single("profileImage"), async (req, res) => {
   try {
     // Upload image to Cloudinary
-    const cloudinaryUpload = await cloudinary.uploader.upload(req.file.path);
+    const cloudinaryUpload = await cloudinary.uploader.upload(req.file.path, {
+      transformation: [{ width: 300, height: 300, crop: "limit" }],
+    });
 
     // Save the data to your MongoDB database using the Item model
     const newItem = new Item({
@@ -61,7 +63,6 @@ router.post("/add", upload.single("profileImage"), async (req, res) => {
       createdAt: new Date(),
       createdBy: req.user._id,
     });
-
     await newItem.save();
     // Redirect to a success page or wherever you want after the entry is saved
     res.redirect("/");

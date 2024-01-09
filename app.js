@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 const { upload } = require('./config/multer');
-const cloudinary = require('./config/cloudinary');
+const cloud = require('./config/cloud');
 
 
 const authRoutes = require('./routes/auth');

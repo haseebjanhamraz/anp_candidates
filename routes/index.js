@@ -6,6 +6,7 @@ const { upload } = require("../config/multer"); // Adjusted import
 const user = require("../models/User");
 const isAuthenticated = require("./protected"); // Update this line
 const checkUserStatus = require("../middleware/checkUserStatus");
+const cloudinary = require("cloudinary").v2;
 
 // Index route
 router.get("/", async (req, res) => {
@@ -106,7 +107,6 @@ router.post(
         ticketIssued,
         profileImage: profileImage.filename, // Save the filename to the database
       });
-
       // Save the item to the database
       await newItem.save();
 
