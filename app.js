@@ -19,7 +19,7 @@ const protectedRoutes = require('./routes/protected');
 const uploadRoutes = require('./routes/upload')
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // MongoDB connection
 mongoose.connect('mongodb+srv://haseebjanhamraz:nnLWE92stjSDU9VI@anpcluster.behcnv3.mongodb.net/anp-candidates-database?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });

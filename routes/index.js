@@ -1,7 +1,7 @@
 // routes/index.js
 const express = require("express");
 const router = express.Router();
-const Item = require("../models/item");
+const Item = require("/models/item");
 const { upload } = require("../config/multer"); // Adjusted import
 const user = require("../models/User");
 const isAuthenticated = require("./protected"); // Update this line
