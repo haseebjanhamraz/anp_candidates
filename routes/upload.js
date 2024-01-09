@@ -1,10 +1,16 @@
-// routes/upload.js
 const express = require("express");
 const router = express.Router();
 const { upload } = require("../config/multer");
-const user = require("../models/User");
+const cloudinary = require("cloudinary").v2; // Import the cloudinary library
 const Item = require("../models/item");
 const isAuthenticated = require("./protected"); // Assuming this import is correct
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // GET route to display the form with the image preview
 router.get("/add", isAuthenticated, (req, res) => {
@@ -15,8 +21,8 @@ router.get("/add", isAuthenticated, (req, res) => {
 // POST route for handling image upload and entry submission
 router.post("/add", upload.single("profileImage"), async (req, res) => {
   try {
-    // Construct the relative file path without /public
-    const relativeFilePath = req.file.path.replace(/^public\//, "");
+    // Upload image to Cloudinary
+    const cloudinaryUpload = await cloudinary.uploader.upload(req.file.path);
 
     // Save the data to your MongoDB database using the Item model
     const newItem = new Item({
@@ -50,7 +56,8 @@ router.post("/add", upload.single("profileImage"), async (req, res) => {
       tehsilPresidentSign: req.body.tehsilPresidentSign,
       districtPresidentSign: req.body.districtPresidentSign,
       ticketIssued: req.body.ticketIssued,
-      imagePath: relativeFilePath,
+      // Update imagePath to use the Cloudinary URL
+      imagePath: cloudinaryUpload.secure_url,
       createdAt: new Date(),
       createdBy: req.user._id,
     });
